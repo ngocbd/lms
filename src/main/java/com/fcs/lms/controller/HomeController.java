@@ -1,11 +1,13 @@
 package com.fcs.lms.controller;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import com.fcs.lms.entity.Course;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.FirestoreOptions;
@@ -13,12 +15,39 @@ import com.google.cloud.firestore.QuerySnapshot;
 
 @Controller
 public class HomeController {
-	@RequestMapping(value = "/")
+
+	@GetMapping(value = "/")
 	public String index(Model model) throws InterruptedException, ExecutionException {
-		
+
 		Firestore db = FirestoreOptions.getDefaultInstance().getService();
 		ApiFuture<QuerySnapshot> query = db.collection("courses").get();
-		model.addAttribute("aaaa", query.get().getDocuments());
-		return "Hello";
+
+		List<Course> courses = query.get().toObjects(Course.class);
+		model.addAttribute("courses", courses);
+		return "index";
+	}
+
+	@GetMapping(value = "/welcome")
+	public String welcome() throws InterruptedException, ExecutionException {
+
+		return "Welcome";
+	}
+
+	public static void main(String[] args) {
+		Firestore db = FirestoreOptions.getDefaultInstance().getService();
+		ApiFuture<QuerySnapshot> query = db.collection("courses").get();
+		try {
+			List<Course> courses = query.get().toObjects(Course.class);
+
+			courses.stream().forEach(System.out::println);
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 }
