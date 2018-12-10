@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/home}">
+<head>
+<title>Login</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<script>
+		var user = firebase.auth().currentUser;
+			if (user) {
+				window.location.assign("/");
+			} else {
+				showLoginUI();
+			}
+		</script>
+	</div>
+</body>
+</html>

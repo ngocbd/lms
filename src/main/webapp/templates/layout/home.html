@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">FreeCodeSchool</title>
@@ -12,23 +12,31 @@
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <!-- Add additional services that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-<script
-	src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<script	src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+<script src="/js/main.js"></script>
+
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top"
-		th:fragment="header">
-		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><a href="/">Home</a></li>
-				<li><a href="#" th:href="@{/courses}">Courses</a></li>
-				<li><a href="#" th:href="@{/hot}">Hot Courses</a></li>
-			</ul>
-
-		</div>
-
-	</nav>
+	<header th:fragment="header">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/">Home</a></li>
+					<li><a href="#" th:href="@{/courses}">Courses</a></li>
+					<li><a href="#" th:href="@{/hot}">Hot Courses</a></li>
+				</ul>
+			</div>
+			<div id="sign-in"></div>
+			<div id="account-details"></div>
+			<div id="firebaseui-auth-container"></div>
+			<div id="loader" style="display: none">Loading...</div>
+		</nav>
+	</header>
 	<div layout:fragment="content">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat vel lectus non rutrum. Morbi nunc tellus, tempus et congue eu, condimentum eget urna. Vestibulum lacinia, velit vel molestie dapibus, odio urna pulvinar purus, sed iaculis est lectus euismod lorem. Ut in ullamcorper orci. Vivamus eu mi est. Aliquam viverra massa vitae gravida fringilla. Fusce tristique urna quis lorem fermentum convallis et eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi viverra dui ac erat dictum blandit. Nullam tincidunt, magna vitae malesuada tincidunt, lectus diam scelerisque ligula, mollis laoreet velit erat ac mauris. Sed iaculis vitae felis ut euismod.
+
+Ut commodo, ante at euismod hendrerit, ipsum ex rhoncus elit, id imperdiet enim tortor in risus. In mauris neque, euismod sit amet enim ac, pretium porttitor nunc. Nunc nisi sapien, dapibus nec fringilla eu, volutpat id urna. Ut sit amet arcu at neque dictum sodales a non libero. Integer lobortis, leo et semper imperdiet, sapien eros sodales urna, nec dignissim mi velit at justo. Mauris scelerisque ligula justo, et viverra orci sodales ac. Phasellus pellentesque nunc ultrices urna ultricies, eu pharetra elit mattis. Nam eget enim tincidunt, eleifend mauris at, faucibus massa.
 	</div>
 </body>
 </html>

@@ -27,10 +27,9 @@ public class HomeController {
 		return "views/home/index";
 	}
 
-	@GetMapping(value = "/welcome")
+	@GetMapping(value = "/login")
 	public String welcome() throws InterruptedException, ExecutionException {
-
-		return "welcome";
+		return "views/home/login";
 	}
 
 	

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/home}">
+	layout:decorate="~{layout/home}"  xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Home</title>
 </head>
@@ -12,14 +12,14 @@
 		<tr>
 			<th>NAME</th>
 			<th>price</th>
-			<th>Intro</th>
+			<th>Introduce</th>
 
 		</tr>
 		<tr th:each="course : ${courses}">
 			<td th:text="${course.name}"></td>
 			<td th:text="${course.price}"></td>
 			<td th:text="${course.intro}"></td>
-		</tr>
+		</tr> 
 	</table>
 </div>
 </body>
