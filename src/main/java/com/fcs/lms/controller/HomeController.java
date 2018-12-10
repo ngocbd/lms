@@ -24,30 +24,14 @@ public class HomeController {
 
 		List<Course> courses = query.get().toObjects(Course.class);
 		model.addAttribute("courses", courses);
-		return "index";
+		return "views/home/index";
 	}
 
 	@GetMapping(value = "/welcome")
 	public String welcome() throws InterruptedException, ExecutionException {
 
-		return "Welcome";
+		return "welcome";
 	}
 
-	public static void main(String[] args) {
-		Firestore db = FirestoreOptions.getDefaultInstance().getService();
-		ApiFuture<QuerySnapshot> query = db.collection("courses").get();
-		try {
-			List<Course> courses = query.get().toObjects(Course.class);
-
-			courses.stream().forEach(System.out::println);
-
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+	
 }
