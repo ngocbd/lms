@@ -7,6 +7,7 @@ var config = {
     messagingSenderId: "574690181313"
   };
 
+
 firebase.initializeApp(config);
 var db = firebase.firestore();
 
@@ -14,6 +15,7 @@ var db = firebase.firestore();
 db.settings({
 	timestampsInSnapshots: true
 });
+
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   
   function showLoginUI()
