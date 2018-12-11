@@ -6,14 +6,14 @@ var config = {
     storageBucket: "freecodeschoollms.appspot.com",
     messagingSenderId: "574690181313"
   };
+
+firebase.initializeApp(config);
 var db = firebase.firestore();
 
 //Disable deprecated features
 db.settings({
 	timestampsInSnapshots: true
 });
-firebase.initializeApp(config);
-  
 firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   
   function showLoginUI()
