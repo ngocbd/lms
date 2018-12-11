@@ -32,5 +32,13 @@ public class HomeController {
 		return "views/home/login";
 	}
 
-	
+	@GetMapping(value = "/tos")
+	public String tos() throws InterruptedException, ExecutionException {
+		return "views/home/tos";
+	}
+ 
+	@GetMapping(value = "/privacy")
+	public String privacy() throws InterruptedException, ExecutionException {
+		return "views/home/privacy";
+	}
 }

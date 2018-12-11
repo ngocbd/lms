@@ -1,0 +1,13 @@
+h2 {
+	width: 100%;
+	margin-bottom: 15px;
+	border-bottom-color: black;
+	text-align: center;
+}
+
+h3 {
+	width: 100%;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	text-align: left;
+}
