@@ -1,13 +1,36 @@
-h2 {
+li #sign-in {
+	color: brown;
+}
+.main_nav_container {
+    display: inline-block;
+    margin-left: 100px;
+    padding-right: 93px;
+}
+#account-details {
 	width: 100%;
-	margin-bottom: 15px;
-	border-bottom-color: black;
-	text-align: center;
+	float: left;
+	margin: 0 auto;
 }
 
-h3 {
+#firebaseui-auth-container {
 	width: 100%;
-	margin-bottom: 15px;
-	margin-top: 15px;
-	text-align: left;
+	float: left;
+	margin: 0 auto;
+}
+
+#loader {
+	width: 100%;
+	float: left;
+	margin: 0 auto;
+}
+
+.hero_slide .hero_slide_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
