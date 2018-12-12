@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">FreeCodeSchool</title>
-<link rel="stylesheet"
-	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link href="https://media-kyna.cdn.vccloud.vn/css/feedback.css?v=3"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/main.min.css?v=152179552109"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/font-awesome.min.css"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/owl.carousel.css"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/owl.theme.css"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/owl.transitions.css"
+	rel="stylesheet">
+<link type="text/css"
+	href="https://media-kyna.cdn.vccloud.vn/css/select2.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- <link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 <link type="text/css" rel="stylesheet"
 	href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,13 +36,24 @@
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 <!-- Add additional services that you want to use -->
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
-<script	src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+<script
+	src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<script
+	src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
 <script src="/js/main.js"></script>
 
+<style type="text/css">
+iframe#_hjRemoteVarsFrame {
+	display: none !important;
+	width: 1px !important;
+	height: 1px !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+</style>
 </head>
 <body>
-	<header th:fragment="header">
+	<!-- <header th:fragment="header">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -33,10 +68,249 @@
 			<div id="loader" style="display: none">Loading...</div>
 		</nav>
 	</header>
-	<div layout:fragment="content">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc volutpat vel lectus non rutrum. Morbi nunc tellus, tempus et congue eu, condimentum eget urna. Vestibulum lacinia, velit vel molestie dapibus, odio urna pulvinar purus, sed iaculis est lectus euismod lorem. Ut in ullamcorper orci. Vivamus eu mi est. Aliquam viverra massa vitae gravida fringilla. Fusce tristique urna quis lorem fermentum convallis et eget sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi viverra dui ac erat dictum blandit. Nullam tincidunt, magna vitae malesuada tincidunt, lectus diam scelerisque ligula, mollis laoreet velit erat ac mauris. Sed iaculis vitae felis ut euismod.
+	<div layout:fragment="content"></div> -->
 
-Ut commodo, ante at euismod hendrerit, ipsum ex rhoncus elit, id imperdiet enim tortor in risus. In mauris neque, euismod sit amet enim ac, pretium porttitor nunc. Nunc nisi sapien, dapibus nec fringilla eu, volutpat id urna. Ut sit amet arcu at neque dictum sodales a non libero. Integer lobortis, leo et semper imperdiet, sapien eros sodales urna, nec dignissim mi velit at justo. Mauris scelerisque ligula justo, et viverra orci sodales ac. Phasellus pellentesque nunc ultrices urna ultricies, eu pharetra elit mattis. Nam eget enim tincidunt, eleifend mauris at, faucibus massa.
-	</div>
+	<header id="header" th:fragment="header">
+		<nav class="navbar navbar-light k-header-wrap"
+			style="margin-top: 39px;">
+			<div class="container">
+				<div class="navbar-brand logo col-lg-2 col-md-2">
+					<a href="/"><img
+						src="https://media-kyna.cdn.vccloud.vn/img/logo/Kynavnraftlogo.svg"
+						alt="Kyna.vn" class="img-fluid"></a>
+					<script type="application/ld+json">
+                    {
+                      "@context": "http://schema.org",
+                      "@type": "Organization",
+                      "url": "https://kyna.vn",
+                      "logo": "https://media-kyna.cdn.vccloud.vn/img/logo/Kynavnraftlogo.svg"
+                    }
+                </script>
+				</div>
+				<ul class="nav navbar-nav k-header-menu col-xl-2 col-md-1">
+					<li class="nav-item dropdown">
+						<div class="nav-wrap">
+							<a class="nav-link" href="#" data-toggle="dropdown" role="button"
+								aria-haspopup="true" aria-expanded="false"><i
+								class="icon icon-bars"></i> <span>Danh mục khóa học</span></a> <span>
+								<a href="#" class="nav-mb" data-offpage="#nav-mobile"> <i
+									class="icon icon-bars"></i>
+									<p id="name-tag-mobile">Danh mục</p>
+							</a>
+							</span>
+							<ul class="dropdown-menu wrap-menu-list clearfix">
+								<li class="tat-ca-khoa-hoc"><a href="/danh-sach-khoa-hoc"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/65/img/menu_icon-1528365700.png"
+										alt="">Tất cả khóa học</a></li>
+								<li class="kinh-doanh"><a
+									href="/danh-sach-khoa-hoc/kinh-doanh"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/32/img/menu_icon-1528365933.png"
+										alt="">Kinh doanh</a></li>
+								<li class="marketing-truyen-thong"><a
+									href="/danh-sach-khoa-hoc/marketing-truyen-thong"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/35/img/menu_icon-1528365941.png"
+										alt="">Marketing - Truyền thông</a></li>
+								<li class="vi-tinh-van-phong"><a
+									href="/danh-sach-khoa-hoc/vi-tinh-van-phong"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/22/img/menu_icon-1528366074.png"
+										alt="">Vi tính văn phòng</a></li>
+								<li class="ke-toan-tai-chinh-dau-tu"><a
+									href="/danh-sach-khoa-hoc/ke-toan-tai-chinh-dau-tu"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/33/img/menu_icon-1528366088.png"
+										alt="">Kế toán - tài chính - đầu tư</a></li>
+								<li class="thiet-ke-do-hoa-va-video"><a
+									href="/danh-sach-khoa-hoc/thiet-ke-do-hoa-va-video"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/39/img/menu_icon-1528366098.png"
+										alt="">Thiết kế, đồ họa và video</a></li>
+								<li class="it-va-lap-trinh"><a
+									href="/danh-sach-khoa-hoc/it-va-lap-trinh"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/20/img/menu_icon-1528366107.png"
+										alt="">IT và lập trình</a></li>
+								<li class="ky-nang-cho-cong-viec"><a
+									href="/danh-sach-khoa-hoc/ky-nang-cho-cong-viec"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/16/img/menu_icon-1528366124.png"
+										alt="">Kỹ năng cho công việc</a></li>
+								<li class="ngoai-ngu"><a
+									href="/danh-sach-khoa-hoc/ngoai-ngu"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/36/img/menu_icon-1528366137.png"
+										alt="">Ngoại ngữ</a></li>
+								<li class="hr-phat-trien-nguon-luc"><a
+									href="/danh-sach-khoa-hoc/hr-phat-trien-nguon-luc"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/91/img/menu_icon-1528366211.png"
+										alt="">HR - Phát triển nguồn lực</a></li>
+								<li class="nuoi-day-con"><a
+									href="/danh-sach-khoa-hoc/nuoi-day-con"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/19/img/menu_icon-1528366225.png"
+										alt="">Nuôi dạy con</a></li>
+								<li class="ky-nang-cho-be"><a
+									href="/danh-sach-khoa-hoc/ky-nang-cho-be"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/89/img/menu_icon-1528366235.png"
+										alt="">Kỹ năng cho bé</a></li>
+								<li class="phat-trien-ca-nhan"><a
+									href="/danh-sach-khoa-hoc/phat-trien-ca-nhan"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/37/img/menu_icon-1528366251.png"
+										alt="">Phát triển cá nhân</a></li>
+								<li class="phu-nu-va-gia-dinh"><a
+									href="/danh-sach-khoa-hoc/phu-nu-va-gia-dinh"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/38/img/menu_icon-1528366259.png"
+										alt="">Phụ nữ và gia đình</a></li>
+								<li class="nghe-thuat-va-doi-song"><a
+									href="/danh-sach-khoa-hoc/nghe-thuat-va-doi-song"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/21/img/menu_icon-1528366270.png"
+										alt="">Nghệ thuật và Đời sống</a></li>
+								<li class="mc-truyen-hinh"><a
+									href="/danh-sach-khoa-hoc/mc-truyen-hinh"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/90/img/menu_icon-1528366279.png"
+										alt="">MC - Truyền hình</a></li>
+								<li class="luyen-thi-hoc-bong"><a
+									href="/danh-sach-khoa-hoc/luyen-thi-hoc-bong"><img
+										src="https://media-kyna.cdn.vccloud.vn/uploads/categories/34/img/menu_icon-1538108371.png"
+										alt="">Luyện thi - Học Bổng</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav k-header-info col-md-4 col-md-push-4">
+					<li class="cart dropdown"><a href="/gio-hang"
+						class="dropdown-toggle cart_anchor" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false"> <span
+							class="count-number">0</span>
+					</a>
+						<ul class="dropdown-menu wrap clearfix">
+							<li class="clearfix wrap-form-cart k-add-to-cart-register"
+								id="k-header-form-cart">
+								<p class="empty-cart">Giỏ hàng trống!</p>
+							</li>
+						</ul></li>
+					<!-- <li class="button-cod"><a class="btn btn-cod-active"
+						href="/kich-hoat" data-toggle="popup" data-target="#activeCOD"
+						data-ajax="" data-push-state="false">Kích hoạt COD</a></li> -->
+					<li class="login-signup">
+						<!-- <a href="/dang-nhap"
+						class="button-login" data-toggle="modal"
+						data-target="#k-popup-account-login" data-ajax=""
+						data-push-state="false">Đăng nhập</a> <a href="/dang-ky"
+						class="button-register" data-toggle="modal"
+						data-target="#k-popup-account-register" data-ajax=""
+						data-push-state="false">Đăng ký</a> -->
+						<div id="sign-in"></div>
+						<div id="account-details"></div>
+						<div id="firebaseui-auth-container"></div>
+						<div id="loader" style="display: none">Loading...</div>
+					</li>
+				</ul>
+				<div
+					class="form-inline k-header-search col-md-4 col-md-pull-4 col-xs-12">
+					<div class="row-menu-bar-mobile hidden-sm-up">
+						<div class="k-menu-list-course col-xs-8">
+							<a class="nav-link" href="#" data-offpage="#nav-mobile"> <i
+								class="icon icon-bars"></i> <span>Danh mục khóa học</span>
+							</a>
+						</div>
+						<div class="k-button-search-course col-xs-4">
+							<a id="k-button-search-course-mb" class="nav-link" href="#"
+								data-offpage="#nav-mobile-search"> <i
+								class="icon-search icon"></i> <span>Tìm</span>
+							</a>
+						</div>
+					</div>
+					<form id="search-form" action="/danh-sach-khoa-hoc" method="get">
+						<div class="input-group">
+							<button class="icon-search hidden-sm-up"></button>
+							<input id="live-search-bar" name="q" type="text"
+								class="form-control live-search-bar ui-autocomplete-input"
+								placeholder="Tìm khóa học bạn quan tâm" autocomplete="off">
+							<span class="input-group-btn">
+								<button class="btn btn-secondary search-button" type="submit">
+									<i class="icon-search icon hidden-480"></i> <span class="mob">Tìm</span>
+								</button>
+							</span> <span class="k-close-search-popup hidden-sm-up"
+								id="k-close-search-popup"> <svg width="12" height="12"
+									viewBox="0 0 24 24">
+									<path
+										d="m367 256l142-141c2-2 3-5 3-8c0-3-1-5-3-7l-96-97c-2-2-4-3-7-3c0 0 0 0 0 0c-3 0-6 1-8 3l-142 142l-141-142c-2-2-5-3-8-3c0 0 0 0 0 0c-3 0-5 1-7 3l-96 96c-5 4-5 11-1 15l142 142l-142 141c-4 4-4 11 0 15l96 97c2 2 4 3 7 3l0 0c3 0 6-1 8-3l142-142l141 142c2 2 5 3 8 3c3 0 5-1 7-3l97-96c4-4 4-11 0-15z"
+										transform="scale(0.046875 0.046875)"></path></svg>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</nav>
+
+	</header>
+
+	<div layout:fragment="content"></div>
+
+	<footer layout:fragment="footer">
+		<div id="k-footer">
+			<div class="box container clearfix">
+				<div style="width: 250px;" class="hotline">
+					<h4 class="bold text-transform title">Kết nối với Kyna</h4>
+					<div class="social">
+						<a href="https://www.facebook.com/kyna.vn" target="_blank"><img
+							src="https://media-kyna.cdn.vccloud.vn/img/fb-icon.png"
+							alt="facebook"></a> <a
+							href="https://www.youtube.com/user/kynavn" target="_blank"
+							style="margin: 0 5px"><img
+							src="https://media-kyna.cdn.vccloud.vn/img/youtube-icon.png"
+							alt="youtube"></a> <a
+							href="https://zalo.me/1985686830006307471" target="_blank"><img
+							src="https://media-kyna.cdn.vccloud.vn/img/zalo-icon.png"
+							alt="zalo"></a>
+					</div>
+					<ul class="bottom">
+						<li><first>Hotline</first> <second>1900.6364.09</second></li>
+						<li><first>Email</first> <second>hotro@kyna.vn</second></li>
+					</ul>
+				</div>
+				<div style="width: 250px;" class="info">
+					<h4 class="bold title">Thông tin Kyna</h4>
+					<ul>
+						<li><a href="/danh-sach-khoa-hoc">Danh sách khóa học</a></li>
+						<li><a href="/p/kyna/cau-hoi-thuong-gap">Câu hỏi thường
+								gặp</a></li>
+						<li><a
+							href="/p/kyna/cau-hoi-thuong-gap/huong-dan-thanh-toan-hoc-phi">Cách
+								thanh toán học phí</a></li>
+						<li><a
+							href="/p/kyna/cau-hoi-thuong-gap/phuong-thuc-van-chuyen">Phương
+								thức vận chuyển</a></li>
+						<li><a
+							href="/p/kyna/cau-hoi-thuong-gap/chinh-sach-hoan-hoc-phi">Chính
+								sách hoàn học phí</a></li>
+						<li><a
+							href="/p/kyna/cau-hoi-thuong-gap/chinh-sach-giai-quyet-khieu-nai">Chính
+								sách giải quyết khiếu nại</a></li>
+						<li style="display: none;"><a href="/bai-viet">Thông tin
+								hữu ích</a></li>
+					</ul>
+				</div>
+				<div style="width: 250px;" class="about">
+					<h4 class="bold text-transform title">Về Kyna</h4>
+					<ul>
+						<li><a href="/p/kyna/gioi-thieu" class="hover-color-green">Giới
+								thiệu về công ty</a></li>
+						<li class="iconhot"><a href="/p/kyna/tuyen-dung"
+							class="hover-color-green">Tuyển dụng</a></li>
+						<li><a href="/p/kyna/dao-tao-doanh-nghiep"
+							class="hover-color-green">Đào tạo doanh nghiệp</a></li>
+						<li class="iconfeature"><a href="/p/kyna/giang-day"
+							class="hover-color-green">Giảng dạy tại Kyna.vn</a></li>
+						<li><a href="/p/kyna/quy-che-hoat-dong-sgdtmdt"
+							class="hover-color-green">Quy chế hoạt động Sàn GDTMĐT</a></li>
+					</ul>
+				</div>
+				<div class="fanpage">
+					<div class="face-content">
+						<iframe
+							src="//www.facebook.com/plugins/likebox.php?href=https://www.facebook.com/kyna.vn&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=350&amp;width=255"
+							scrolling="no" frameborder="0"
+							style="border: none; overflow: hidden; width: 100%; height: 220px;"
+							allowtransparency="false"></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

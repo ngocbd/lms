@@ -76,7 +76,7 @@ ui.start('#firebaseui-auth-container',uiConfig);
       var providerData = user.providerData;
       user.getIdToken().then(function(accessToken) {
         //document.getElementById('sign-in-status').textContent = 'Signed in';
-        document.getElementById('sign-in').innerHTML = '<a href="/signout" onclick="return signout()">Sign out</a>';
+        document.getElementById('sign-in').innerHTML = '<a href="/signout"  onclick="return signout()" class="button-register" data-toggle="modal" data-target="#k-popup-account-register" data-ajax="" data-push-state="false">Đăng xuất</a>';
         document.getElementById('account-details').textContent = displayName;
         /* document.getElementById('account-details').textContent = JSON.stringify({
           displayName: displayName,
@@ -92,7 +92,7 @@ ui.start('#firebaseui-auth-container',uiConfig);
     } else {
       // User is signed out.
       //document.getElementById('sign-in-status').textContent = 'Signed out';
-      document.getElementById('sign-in').innerHTML = '<a href="/login" onclick="return showLoginUI()">Login</a>';
+      document.getElementById('sign-in').innerHTML = '<a href="/login" onclick="return showLoginUI()" class="button-login" data-toggle="modal" data-target="#k-popup-account-login" data-ajax="" data-push-state="false">Đăng nhập</a>';
       document.getElementById('account-details').textContent = '';
     }
   }, function(error) {
