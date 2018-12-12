@@ -41,4 +41,9 @@ public class HomeController {
 	public String privacy() throws InterruptedException, ExecutionException {
 		return "views/home/privacy";
 	}
+	
+	@GetMapping(value = "/detail")
+	public String detail() throws InterruptedException, ExecutionException {
+		return "views/home/detail";
+	}
 }
