@@ -49,6 +49,6 @@ public class HomeController {
 	
 	@GetMapping(value = "/create")
 	public String create() throws InterruptedException, ExecutionException {
-		return "views/courseManage/create";
+		return "views/course/create";
 	} 
 }
