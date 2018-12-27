@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400"
+	rel="stylesheet">
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="../../../css/bootstrap.min.css" />
+
+<link type="text/css" rel="stylesheet" href="../../../css/sweetalert2.min.css">
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="../../../css/style-create.css" />
+</head>
+<body>
+	<!-- author:
+	<input type="textfield" id="author" />1
+	<br> Description:
+	<input type="textfield" id="description" />2
+	<br> Hot course:
+	<input type="textfield" id="hotCourse" />3
+	<br> Lecturer:
+	<input type="textfield" id="lecturer" />4
+	<br> Name:
+	<input type="textfield" id="name" />5
+	<br> Price:
+	<input type="textfield" id="price" />6
+	<br> Time:
+	<input type="textfield" id="time" />7
+	<br>
+	<button id="saveButton">Save</button> -->
+
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="booking-form">
+					<h4 class="create-course">CREATE NEW COURSE</h4>
+					<div class="form-group">
+						<div class="form-checkbox">
+							<label for="roundtrip"> <input type="radio"
+								id="roundtrip" name="hot"> <span></span>Hot Course
+							</label> <label for="one-way"> <input type="radio" id="one-way"
+								name="flight-type"> <span></span>Regular Course
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<span class="form-label">Course Name</span> <input
+									class="form-control" id="name" type="text"
+									placeholder="course name" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<span class="form-label">Author</span> <input
+									class="form-control" id="author" type="text"
+									placeholder="author" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<span class="form-label">Description</span> <input
+									class="form-control" id="description" type="text"
+									placeholder="description" required>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<span class="form-label">Lecturer ID (email)</span> <input
+									class="form-control" id="lecturer" type="email"
+									placeholder="lecturer" required>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<span class="form-label">Price (VND)</span> <input
+									class="form-control" id="price" type="number" min="100"
+									required>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<span class="form-label">Number of teaching hours</span> <input
+									class="form-control" id="time" type="number" min="100" required>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<span class="form-label">Course code</span> <input
+									class="form-control" id="course_code" type="text" required>
+							</div>
+						</div>
+					</div>
+					<div class="accordion" id="accordionExample-1">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-info" type="button"
+										data-toggle="collapse" data-target="#collapseOne-1"
+										aria-expanded="true" aria-controls="collapseOne-1">
+										Part 1</button>
+								</h5>
+							</div>
+
+							<div id="collapseOne-1" class="collapse show"
+								aria-labelledby="headingOne" data-parent="#accordionExample-1">
+								<div class="card-body">
+									<h4 class="part-course">Parts course</h4>
+									<div class="row">
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Part Course Code</span> <input
+													class="form-control" id="part_code" class="part_code" type="text"
+													placeholder="part course code" required>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Name part course</span> <input
+													class="form-control" id="name_part" type="text"
+													placeholder="part course name" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Description Part</span> <input
+													class="form-control" id="des_part" type="text"
+													placeholder="description part" required>
+											</div>
+										</div>
+									</div>
+									<div class="accordion" id="accordionExample-11">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-11"
+														aria-expanded="true" aria-controls="collapseOne-11">
+														Lesson 1</button>
+												</h5>
+											</div>
+											<div id="collapseOne-11" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-11">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-12">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-12"
+														aria-expanded="true" aria-controls="collapseOne-12">
+														Lesson 2</button>
+												</h5>
+											</div>
+											<div id="collapseOne-12" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-12">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-13">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-13"
+														aria-expanded="true" aria-controls="collapseOne-13">
+														Lesson 3</button>
+												</h5>
+											</div>
+											<div id="collapseOne-13" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-13">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-14">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-14"
+														aria-expanded="true" aria-controls="collapseOne-14">
+														Lesson 4</button>
+												</h5>
+											</div>
+											<div id="collapseOne-14" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-14">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-15">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-15"
+														aria-expanded="true" aria-controls="collapseOne-15">
+														Lesson 5</button>
+												</h5>
+											</div>
+											<div id="collapseOne-15" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-15">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion" id="accordionExample-2">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-info" type="button"
+										data-toggle="collapse" data-target="#collapseOne-2"
+										aria-expanded="true" aria-controls="collapseOne-2">
+										Part 2</button>
+								</h5>
+							</div>
+
+							<div id="collapseOne-2" class="collapse show"
+								aria-labelledby="headingOne" data-parent="#accordionExample-2">
+								<div class="card-body">
+									<h4 class="part-course">Parts course</h4>
+									<div class="row">
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Part Course Code</span> <input
+													class="form-control" id="part_code" class="part_code" type="text"
+													placeholder="part course code" required>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Name part course</span> <input
+													class="form-control" id="name_part" type="text"
+													placeholder="part course name" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Description Part</span> <input
+													class="form-control" id="des_part" type="text"
+													placeholder="description part" required>
+											</div>
+										</div>
+									</div>
+									<div class="accordion" id="accordionExample-11">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-11"
+														aria-expanded="true" aria-controls="collapseOne-11">
+														Lesson 1</button>
+												</h5>
+											</div>
+											<div id="collapseOne-11" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-11">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-12">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-12"
+														aria-expanded="true" aria-controls="collapseOne-12">
+														Lesson 2</button>
+												</h5>
+											</div>
+											<div id="collapseOne-12" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-12">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-13">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-13"
+														aria-expanded="true" aria-controls="collapseOne-13">
+														Lesson 3</button>
+												</h5>
+											</div>
+											<div id="collapseOne-13" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-13">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-14">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-14"
+														aria-expanded="true" aria-controls="collapseOne-14">
+														Lesson 4</button>
+												</h5>
+											</div>
+											<div id="collapseOne-14" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-14">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-15">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-15"
+														aria-expanded="true" aria-controls="collapseOne-15">
+														Lesson 5</button>
+												</h5>
+											</div>
+											<div id="collapseOne-15" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-15">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion" id="accordionExample-3">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-info" type="button"
+										data-toggle="collapse" data-target="#collapseOne-3"
+										aria-expanded="true" aria-controls="collapseOne-3">
+										Part 3</button>
+								</h5>
+							</div>
+
+							<div id="collapseOne-3" class="collapse show"
+								aria-labelledby="headingOne" data-parent="#accordionExample-3">
+								<div class="card-body">
+									<h4 class="part-course">Parts course</h4>
+									<div class="row">
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Part Course Code</span> <input
+													class="form-control" id="part_code" class="part_code" type="text"
+													placeholder="part course code" required>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="form-group">
+												<span class="form-label">Name part course</span> <input
+													class="form-control" id="name_part" type="text"
+													placeholder="part course name" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Description Part</span> <input
+													class="form-control" id="des_part" type="text"
+													placeholder="description part" required>
+											</div>
+										</div>
+									</div>
+									<div class="accordion" id="accordionExample-11">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-11"
+														aria-expanded="true" aria-controls="collapseOne-11">
+														Lesson 1</button>
+												</h5>
+											</div>
+											<div id="collapseOne-11" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-11">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-12">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-12"
+														aria-expanded="true" aria-controls="collapseOne-12">
+														Lesson 2</button>
+												</h5>
+											</div>
+											<div id="collapseOne-12" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-12">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-13">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-13"
+														aria-expanded="true" aria-controls="collapseOne-13">
+														Lesson 3</button>
+												</h5>
+											</div>
+											<div id="collapseOne-13" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-13">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-14">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-14"
+														aria-expanded="true" aria-controls="collapseOne-14">
+														Lesson 4</button>
+												</h5>
+											</div>
+											<div id="collapseOne-14" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-14">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion" id="accordionExample-15">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-success" type="button"
+														data-toggle="collapse" data-target="#collapseOne-15"
+														aria-expanded="true" aria-controls="collapseOne-15">
+														Lesson 5</button>
+												</h5>
+											</div>
+											<div id="collapseOne-15" class="collapse show"
+												aria-labelledby="headingOne"
+												data-parent="#accordionExample-15">
+												<div class="card-body">
+													<h4 class="part-course">Lessons</h4>
+													<div class="row">
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Lesson Code</span> <input
+																	class="form-control" id="lesson_code" type="text"
+																	placeholder="lesson code" required>
+															</div>
+														</div>
+														<div class="col-md-3">
+															<div class="form-group">
+																<span class="form-label">Name lesson</span> <input
+																	class="form-control" id="name_lesson" type="text"
+																	placeholder="lesson name" required>
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<span class="form-label">Description Lesson</span> <input
+																	class="form-control" id="des_lesson" type="text"
+																	placeholder="description lesson" required>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-btn">
+								<button id="saveButton" class="submit-btn">Save Course</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
+	<script
+		src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="../../../js/popper.min.js"></script>
+	<script src="../../../js/bootstrap.min.js"></script>
+	<script src="../../../js/create-course.js"></script>
+	<script src="../../../js/sweetalert2.min.js"></script>
+</body>
+</html>
