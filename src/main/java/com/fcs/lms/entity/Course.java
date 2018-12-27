@@ -49,6 +49,12 @@ public class Course {
 	public void setPriceUnit(String priceUnit) {
 		this.priceUnit = priceUnit;
 	}
+	public int getHours() {
+		return hours;
+	}
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
 	public String toString()
 	{
 		return this.name;
@@ -61,6 +67,6 @@ public class Course {
 	private int duration;
 	private double price;
 	private String priceUnit;
-	
+	private int hours;
 	
 }
