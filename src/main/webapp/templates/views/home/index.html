@@ -177,12 +177,13 @@
 							<div class="content" style="height: 148px !important">
 								<div class="box-style">
 									<span class="st-video"><i class="fa fa-youtube-play"
-										aria-hidden="true"></i> Khóa học video</span> <span class="time pc"><i
-										class="fa fa-clock-o" aria-hidden="true"></i> 8 giờ</span>
+										aria-hidden="true"></i> Khóa học video</span> <span class="time pc" th:text="${course.hours}"><i
+										class="fa fa-clock-o" aria-hidden="true"></i></span><span class="time pc"> giờ</span>
 								</div>
-								<h4 th:text="${course.name}"></h4>
-								<span class="author" th:text="${course.description}"></span> <span class="major">Sản
-									phẩm của Kyna Group</span>
+								<h4 th:text="${course.description}"></h4>
+								<span class="author" th:text="${course.author}"></span> <span class="major">Sản
+                                    phẩm của Kyna Group</span>
+                                    
 							</div>
 							<div class="content-mb" style="height: auto;">
 								<b>Kyna For Kids</b><span><b>,</b> Sản phẩm của Kyna
