@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/home}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Courses</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="breadcrumb-container">
+            <div class="container">
+                <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" id="https://kyna.vn/" href="https://kyna.vn/">
+                            <span itemprop="name">
+                                <i class="fa fa-home"></i> Trang chủ</span>
+                            <meta itemprop="url" content="https://kyna.vn/">
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                    <li class="active">Danh sách khóa học</li>
+                </ul>
+            </div>
+        </div>
+        <main>
+            <div id="k-listing" class="container k-height-header">
+                <div class="col-lg-3 col-xs-12 k-listing-sidebar" id="offpage-listing-sidebar">
+                    <!-- <header>
+                        <div class="k-header-offpage-menu">
+                            <img src="https://media-kyna.cdn.vccloud.vn/img/logo/Kynavnraftlogo.svg" alt="Kyna.vn" class="img-responsive">
+                            <a href="#" class="left offpage-close" data-offpage="#offpage-listing-sidebar">
+                                <i class="icon icon-arrow-right-bold" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </header> -->
+                    <section>
+                        <div class="k-listing-category">
+                            <h3>Danh mục khóa học</h3>
+                            <ul class="k-category-list pd0">
+                                <li class="tat-ca-khoa-hoc">
+                                    <a href="/list-courses">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/65/img/menu_icon-1528365700.png" alt="">Tất cả khóa học </a>
+                                </li>
+                                <!-- <li class="khoa-hoc-combo">
+                                    <a href="/khuyen-mai/nhom-khoa-hoc">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/66/img/menu_icon-1528365911.png" alt="">Khóa học combo </a>
+                                </li> -->
+                                <li class="kinh-doanh">
+                                    <a href="/list-courses/kinh-doanh">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/32/img/menu_icon-1528365933.png" alt="">Kinh doanh </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="marketing-truyen-thong">
+                                    <a href="/list-courses/marketing-truyen-thong">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/35/img/menu_icon-1528365941.png" alt="">Marketing - Truyền thông </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="vi-tinh-van-phong">
+                                    <a href="/list-courses/vi-tinh-van-phong">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/22/img/menu_icon-1528366074.png" alt="">Vi tính văn phòng </a>
+                                </li>
+                                <li class="ke-toan-tai-chinh-dau-tu">
+                                    <a href="/list-courses/ke-toan-tai-chinh-dau-tu">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/33/img/menu_icon-1528366088.png" alt="">Kế toán - tài chính - đầu tư </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="thiet-ke-do-hoa-va-video">
+                                    <a href="/list-courses/thiet-ke-do-hoa-va-video">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/39/img/menu_icon-1528366098.png" alt="">Thiết kế, đồ họa và video </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="it-va-lap-trinh">
+                                    <a href="/list-courses/it-va-lap-trinh">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/20/img/menu_icon-1528366107.png" alt="">IT và lập trình </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="ky-nang-cho-cong-viec">
+                                    <a href="/list-courses/ky-nang-cho-cong-viec">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/16/img/menu_icon-1528366124.png" alt="">Kỹ năng cho công việc </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="ngoai-ngu">
+                                    <a href="/list-courses/ngoai-ngu">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/36/img/menu_icon-1528366137.png" alt="">Ngoại ngữ </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="hr-phat-trien-nguon-luc">
+                                    <a href="/list-courses/hr-phat-trien-nguon-luc">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/91/img/menu_icon-1528366211.png" alt="">HR - Phát triển nguồn lực </a>
+                                </li>
+                                <li class="nuoi-day-con">
+                                    <a href="/list-courses/nuoi-day-con">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/19/img/menu_icon-1528366225.png" alt="">Nuôi dạy con </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="ky-nang-cho-be">
+                                    <a href="/list-courses/ky-nang-cho-be">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/89/img/menu_icon-1528366235.png" alt="">Kỹ năng cho bé </a>
+                                </li>
+                                <li class="phat-trien-ca-nhan">
+                                    <a href="//phat-trien-ca-nhan">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/37/img/menu_icon-1528366251.png" alt="">Phát triển cá nhân </a>
+                                </li>
+                                <li class="phu-nu-va-gia-dinh">
+                                    <a href="/list-/phu-nu-va-gia-dinh">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/38/img/menu_icon-1528366259.png" alt="">Phụ nữ và gia đình </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="nghe-thuat-va-doi-song">
+                                    <a href="/list-/nghe-thuat-va-doi-song">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/21/img/menu_icon-1528366270.png" alt="">Nghệ thuật và Đời sống </a>
+                                    <span class="float-right">
+                                        <i class="icon-arrow-right"></i>
+                                    </span>
+                                </li>
+                                <li class="mc-truyen-hinh">
+                                    <a href="/list-/mc-truyen-hinh">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/90/img/menu_icon-1528366279.png" alt="">MC - Truyền hình </a>
+                                </li>
+                                <li class="luyen-thi-hoc-bong">
+                                    <a href="/list-/luyen-thi-hoc-bong">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/uploads/categories/34/img/menu_icon-1538108371.png" alt="">Luyện thi - Học Bổng </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="k-listing-hot-topics">
+                            <h3>Chủ đề đang hot</h3>
+                            <ul class="k-listing-hot-topics-list">
+                                <li>
+                                    <a href="/tag/dong-gia" title="Đồng giá">Đồng giá</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/giao-tiep" title="Khoá học giao tiếp online cùng chuyên gia">Giao tiếp</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/ban-hang" title="Bán hàng">Bán hàng</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/photoshop" title="Photoshop">Photoshop</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/facebook" title="Học Facebook Marketing online cùng chuyên gia">Facebook</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/thuyet-phuc" title="Thuyết phục">Thuyết phục</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/seo" title="SEO">SEO</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/tieng-hoa" title="Khoá học Tiếng Hoa online cùng chuyên gia ">Tiếng Hoa</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/guitar" title="Guitar">Guitar</a>
+                                </li>
+                                <li>
+                                    <a href="/tag/yoga" title="Yoga">Yoga</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-9 col-xs-12 k-listing-content">
+                    <section id="banner-campaign-category">
+                        <h3 style="color:#50ad4e; font-weight: bold;">Có gì hot trên Kyna?</h3>
+                        <div class="box">
+                            <div class="banner lg-banner" id="">
+                                <a href="https://kyna.vn/p/nhom-khoa-hoc/content-marketing-hay/362582?ktrack=332018-big-tatca" title="" target="_blank">
+                                    <img class="image-topbar banner-pc img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/banners/338/img/image_url-1539575776.original.png"
+                                        alt="uploads/banners/338/img/image_url-1539575776.original.png" title="uploads/banners/338/img/image_url-1539575776.original.png"> </a>
+                            </div>
+                            <div class="banner sm-banner" id="">
+                                <div class="item">
+                                    <a href="https://kyna.vn/chinh-phuc-tu-vung-tieng-han/362590?ktrack=332018-small2-tatca" title="Bí quyết học từ vựng tiếng Hàn hiệu quả"
+                                        target="_blank">
+                                        <img class="image-topbar banner-pc img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/banners/340/img/image_url-1539575886.original.png"
+                                            alt="Bí quyết học từ vựng tiếng Hàn hiệu quả" title="Bí quyết học từ vựng tiếng Hàn hiệu quả"> </a>
+                                    <div class="info">
+                                        <h5>
+                                            <a href="https://kyna.vn/chinh-phuc-tu-vung-tieng-han/362590?ktrack=332018-small2-tatca" title="Bí quyết học từ vựng tiếng Hàn hiệu quả"
+                                                target="_blank">
+                                                Bí quyết học từ vựng tiếng Hàn hiệu quả </a>
+                                        </h5>
+                                        Khám phá ngay </div>
+                                </div>
+                                <div class="item">
+                                    <a href="https://kyna.vn/p/nhom-khoa-hoc/yoga-khoe-dep-va-thon-gon/362588?ktrack=332018-small1-tatca" title="Tạm biệt mỡ thừa đổi eo chuẩn, dáng thon"
+                                        target="_blank">
+                                        <img class="image-topbar banner-pc img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/banners/339/img/image_url-1539575847.original.png"
+                                            alt="Tạm biệt mỡ thừa đổi eo chuẩn, dáng thon" title="Tạm biệt mỡ thừa đổi eo chuẩn, dáng thon"> </a>
+                                    <div class="info">
+                                        <h5>
+                                            <a href="https://kyna.vn/p/nhom-khoa-hoc/yoga-khoe-dep-va-thon-gon/362588?ktrack=332018-small1-tatca" title="Tạm biệt mỡ thừa đổi eo chuẩn, dáng thon"
+                                                target="_blank">
+                                                Tạm biệt mỡ thừa đổi eo chuẩn, dáng thon </a>
+                                        </h5>
+                                        Học ngay </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <div>
+                        <span class="menu-heading">
+                            <h1>
+                                <b>Tất cả</b>
+                            </h1>
+                            <!-- <div class="box-inline">
+                                <b>735</b> khóa học
+                                <br>
+                                <div class="k-listing-button-filter k-button-mobile" data-offpage="#nav-filter-search">Lọc kết quả
+                                    <img src="https://media-kyna.cdn.vccloud.vn/img/icon-filter.png" alt="">
+                                </div>
+                            </div> -->
+                        </span>
+                    </div>
+                    <section>
+                        <ul id="w1" class="k-box-card-list">
+                            <li class="col-xl-4 col-md-6 col-xs-12 k-box-card" data-key="0" th:each="course : ${courses}">
+                                <div class="k-box-card-wrap clearfix" data-id="1347" data-course-type="1">
+                                    <div class="img">
+                                        <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/1347/img/image_url-1545973642.cover-263x147.jpg"
+                                            alt="Làm phim nhanh chóng với Movavi Video Editor và Motion Graphic trên Camtasia"
+                                            title="Làm phim nhanh chóng với Movavi Video Editor và Motion Graphic trên Camtasia">
+                                        <div class="label-wrap">
+                                        </div>
+                                        <div class="rating-box clearfix">
+                                            <div class="dot" position="1">
+                                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="rating-text">
+                                                <b>0
+                                                    <i class="icon icon-star"></i>
+                                                </b>
+                                                <span>(0
+                                                    <detail> đánh giá</detail>)</span>
+                                            </div>
+                                            <div class="dot" position="2">
+                                                <i class="fa fa-circle" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="number-student">
+                                                <i class="fa fa-user" aria-hidden="true"></i>
+                                                <span>0
+                                                    <span>học viên</span>
+                                                    <detail> đăng ký học</detail>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <span class="background-detail">
+                                            <span class="wrap-position">
+                                                <div class="inner">
+                                                    <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" data-ajax="" data-toggle="popup"
+                                                        data-target="#modal">Xem nhanh</a>
+                                                    <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" class="view-detail">Xem chi tiết</a>
+                                                </div>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="content" style="height: 168px;">
+                                        <div class="box-style">
+                                            <span class="st-video">
+                                                <i class="fa fa-youtube-play" aria-hidden="true"></i> Khóa học video</span>
+                                            <span class="time pc" th:text="${course.hours}">
+                                                <i class="fa fa-clock-o" aria-hidden="true"></i></span><span class="time pc"> giờ</span>
+                                        </div>
+                                        <h4 th:text="${course.description}"></h4>
+                                        <span class="author" th:text="${course.author}"></span>
+                                        <span class="major">Founder -Acamotion</span>
+                                    </div>
+                                    <!-- <div class="content-mb">
+                                        <b>Master Trần</b>
+                                        <span>
+                                            <b>,</b> Founder -Acamotion</span>
+                                    </div> -->
+                                    <div class="view-price" style="height: 47px;">
+                                        <ul>
+                                            <li class="price">
+                                                <strong th:text="${course.price}"></strong> đ
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- <div class="view-price-mb">
+                                        <div class="student">
+                                            <div class="number">0</div>
+                                            <div class="text">học viên</div>
+                                        </div>
+                                        <div class="time">
+                                            <div class="number">5</div>
+                                            <div class="text">giờ</div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="label-price">
+                                                <div class="first">600.000đ</div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" class="link-wrap"></a>
+                                </div>
+                                <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" class="card-popup"></a>
+                            </li>
+                            
+                        </ul>
+                    </section>
+                    <section id="best-seller-courses">
+                        <div class="hr"></div>
+                        <h2 style="color: #50ad4e;"> Các danh mục khác phù hợp</h2>
+                        <div class="box">
+                            <ul id="w2" class="k-box-card-list-category best-seller-categories-container w3">
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="0">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/50/img/images_thumb-1526548532.original.png"
+                                                alt="Digital Marketing" title="Digital Marketing"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/digital-marketing" class="name">
+                                            <span>
+                                                Digital Marketing </span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="1">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/59/img/images_thumb-1526549166.original.png"
+                                                alt="Tiếng Anh" title="Tiếng Anh"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/tieng-anh" class="name">
+                                            <span>
+                                                Tiếng Anh </span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="2">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/86/img/images_thumb-1526549278.original.png"
+                                                alt="Nuôi dạy con (0-6 tuổi)" title="Nuôi dạy con (0-6 tuổi)"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/nuoi-day-con-0-6-tuoi" class="name">
+                                            <span>
+                                                Nuôi dạy con (0-6 tuổi) </span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="3">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/61/img/images_thumb-1526549265.original.png"
+                                                alt="Dinh dưỡng cho bé" title="Dinh dưỡng cho bé"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/dinh-duong-cho-be" class="name">
+                                            <span>
+                                                Dinh dưỡng cho bé </span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="4">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/87/img/images_thumb-1526549286.original.png"
+                                                alt="Nuôi dạy con (7-11 tuổi)" title="Nuôi dạy con (7-11 tuổi)"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/nuoi-day-con-7-11-tuoi" class="name">
+                                            <span>
+                                                Nuôi dạy con (7-11 tuổi) </span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col-xl-4 col-lg-6 col-xs-6 k-box-card" data-key="5">
+                                    <div class="k-box-card-wrap-custom k-box-card-wrap hot-category">
+                                        <div class="img">
+                                            <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/categories/89/img/images_thumb-1526549304.original.png"
+                                                alt="Kỹ năng cho bé" title="Kỹ năng cho bé"> </div>
+                                        <div class="overlay"></div>
+                                        <a href="https://kyna.vn/danh-sach-khoa-hoc/ky-nang-cho-be" class="name">
+                                            <span>
+                                                Kỹ năng cho bé </span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

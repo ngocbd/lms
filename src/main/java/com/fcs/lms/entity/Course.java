@@ -41,6 +41,14 @@ public class Course {
 		this.description = description;
 	}
 
+	public int getHotCourse() {
+		return hotCourse;
+	}
+
+	public void setHotCourse(int hotCourse) {
+		this.hotCourse = hotCourse;
+	}
+
 	public int getDuration() {
 		return duration;
 	}
@@ -90,6 +98,7 @@ public class Course {
 	private String author;
 	private String objective;
 	private String description;
+	private int hotCourse;
 	private int duration;
 	private double price;
 	private String priceUnit;
