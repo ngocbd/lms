@@ -1,5 +1,7 @@
 package com.fcs.lms.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -13,8 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.fcs.lms.entity.Category;
 import com.fcs.lms.entity.Course;
 import com.fcs.lms.entity.Lecturer;
+import com.fcs.lms.entity.Lesson;
+import com.fcs.lms.entity.Part;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Query;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
@@ -32,18 +37,12 @@ public class HomeController {
 		Firestore db = FirestoreOptions.getDefaultInstance().getService();
 		ApiFuture<QuerySnapshot> query = db.collection("courses").get();
 		ApiFuture<QuerySnapshot> queryLec = null;
-//		DocumentReference docRef;
-//		ApiFuture<DocumentSnapshot> lecturer = null;
-
 		List<Course> courses = query.get().toObjects(Course.class);
 		List<Lecturer> lecturers = null;
 		for (Course course : courses) {
-//			docRef = db.collection("lecturers").document(course.getLecturerId());
-//			lecturer = docRef.get();
 			queryLec = db.collection("lecturers").whereEqualTo("name", course.getAuthor()).get();
 			lecturers = queryLec.get().toObjects(Lecturer.class);
 		}
-
 		model.addAttribute("courses", courses);
 		LOGGER.info(lecturers.toString());
 		model.addAttribute("lecturers", lecturers);
@@ -93,8 +92,58 @@ public class HomeController {
 		return "views/home/courses";
 	}
 
-	@GetMapping(value = "/detail")
-	public String detail() throws InterruptedException, ExecutionException {
+	@GetMapping(value = "/{course}")
+	public String detail(Model model, @PathVariable("course") String name)
+			throws InterruptedException, ExecutionException {
+		Firestore db = FirestoreOptions.getDefaultInstance().getService();
+		ApiFuture<QuerySnapshot> future1 = db.collection("courses").whereEqualTo("url", name).get();
+		List<QueryDocumentSnapshot> documents = future1.get().getDocuments();
+		Course course = null;
+		
+		for (DocumentSnapshot document1 : documents) {
+			DocumentReference docRef = db.collection("courses").document(document1.getId());
+			// asynchronously retrieve the document
+			ApiFuture<DocumentSnapshot> future2 = docRef.get();
+			// block on response
+			DocumentSnapshot document2 = future2.get();
+			course = document2.toObject(Course.class);
+		}
+		
+		ApiFuture<QuerySnapshot> queryPart = db.collection("parts").whereEqualTo("courseName", course.getName()).get();
+		// get part document
+		List<QueryDocumentSnapshot> partDocuments = queryPart.get().getDocuments();
+		List<Part> parts = queryPart.get().toObjects(Part.class);
+		ApiFuture<QuerySnapshot> queryLesson = null;
+		List<Lesson> lessons = null;
+		HashMap<String, List<Lesson>> listMap = new HashMap<>();
+
+		for (DocumentSnapshot document : partDocuments) {
+			// get lessons in document of part query
+			queryLesson = db.collection("parts").document(document.getId()).collection("lessons").get();
+			lessons = queryLesson.get().toObjects(Lesson.class);
+			listMap.put(document.getId(), lessons);
+		}
+
+		// get lecturer detail
+		ApiFuture<QuerySnapshot> futureLec = db.collection("lecturers").whereEqualTo("url", name).get();
+		DocumentReference docRef = db.collection("cities").document(course.getLecturerId());
+		// asynchronously retrieve the document
+		ApiFuture<DocumentSnapshot> future = docRef.get();
+		// block on response
+		DocumentSnapshot document = future.get();
+		Lecturer lecturer = null;
+		if (document.exists()) {
+			// convert document to POJO
+			lecturer = document.toObject(Lecturer.class);
+			System.out.println(lecturer);
+		} else {
+			System.out.println("No such document!");
+		}
+
+		model.addAttribute("course", course);
+		model.addAttribute("parts", parts);
+		model.addAttribute("lessons", listMap);
+		model.addAttribute("lecturer", lecturer);
 		return "views/home/detail";
 	}
 
