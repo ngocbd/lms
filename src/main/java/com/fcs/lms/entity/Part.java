@@ -2,6 +2,14 @@ package com.fcs.lms.entity;
 
 public class Part {
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getCourseName() {
 		return courseName;
 	}
@@ -46,6 +54,7 @@ public class Part {
 //		return this.name;
 //	}
 
+	private String id;
 	private String courseName;
 	private String objective;
 	private String name;

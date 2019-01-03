@@ -1,5 +1,7 @@
 package com.fcs.lms.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -90,11 +92,6 @@ public class HomeController {
 		return "views/home/courses";
 	}
 
-//	@GetMapping(value = "/detail")
-//	public String detail() throws InterruptedException, ExecutionException {
-//		return "views/home/detail";
-//	}
-
 	@GetMapping(value = "/{course}")
 	public String detail(Model model, @PathVariable("course") String name)
 			throws InterruptedException, ExecutionException {
@@ -102,6 +99,7 @@ public class HomeController {
 		ApiFuture<QuerySnapshot> future1 = db.collection("courses").whereEqualTo("url", name).get();
 		List<QueryDocumentSnapshot> documents = future1.get().getDocuments();
 		Course course = null;
+		
 		for (DocumentSnapshot document1 : documents) {
 			DocumentReference docRef = db.collection("courses").document(document1.getId());
 			// asynchronously retrieve the document
@@ -110,22 +108,42 @@ public class HomeController {
 			DocumentSnapshot document2 = future2.get();
 			course = document2.toObject(Course.class);
 		}
+		
 		ApiFuture<QuerySnapshot> queryPart = db.collection("parts").whereEqualTo("courseName", course.getName()).get();
 		// get part document
 		List<QueryDocumentSnapshot> partDocuments = queryPart.get().getDocuments();
 		List<Part> parts = queryPart.get().toObjects(Part.class);
 		ApiFuture<QuerySnapshot> queryLesson = null;
 		List<Lesson> lessons = null;
+		HashMap<String, List<Lesson>> listMap = new HashMap<>();
+
 		for (DocumentSnapshot document : partDocuments) {
 			// get lessons in document of part query
 			queryLesson = db.collection("parts").document(document.getId()).collection("lessons").get();
 			lessons = queryLesson.get().toObjects(Lesson.class);
-			LOGGER.info("lessons : " + lessons.toString());
+			listMap.put(document.getId(), lessons);
+		}
+
+		// get lecturer detail
+		ApiFuture<QuerySnapshot> futureLec = db.collection("lecturers").whereEqualTo("url", name).get();
+		DocumentReference docRef = db.collection("cities").document(course.getLecturerId());
+		// asynchronously retrieve the document
+		ApiFuture<DocumentSnapshot> future = docRef.get();
+		// block on response
+		DocumentSnapshot document = future.get();
+		Lecturer lecturer = null;
+		if (document.exists()) {
+			// convert document to POJO
+			lecturer = document.toObject(Lecturer.class);
+			System.out.println(lecturer);
+		} else {
+			System.out.println("No such document!");
 		}
 
 		model.addAttribute("course", course);
 		model.addAttribute("parts", parts);
-		model.addAttribute("lessons", lessons);
+		model.addAttribute("lessons", listMap);
+		model.addAttribute("lecturer", lecturer);
 		return "views/home/detail";
 	}
 
