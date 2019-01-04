@@ -141,9 +141,9 @@
 							data-course-type="1">
 							<div class="img" style="height: 142px;">
 								<img class="img-fluid"
-									src="https://media-kyna.cdn.vccloud.vn/uploads/courses/896/img/image_url-1536482222.cover-263x147.png"
+									th:src="@{${course.img}}"
 									alt="Học tính toán nhanh cùng bàn tính Soroban 3"
-									title="Học tính toán nhanh cùng bàn tính Soroban 3">
+									title="Học tính toán nhanh cùng bàn tính Soroban 3" />
 								<div class="label-wrap"></div>
 								<div class="rating-box clearfix">
 									<div class="dot" position="1">
@@ -209,9 +209,9 @@
 									</div>
 								</div>
 							</div> -->
-							<a href="/hoc-tinh-toan-nhanh-cung-ban-tinh-soroban-3"
+							<a th:href="@{'/' + ${course.url}}"
 								class="link-wrap"></a>
-						</div> <a href="/hoc-tinh-toan-nhanh-cung-ban-tinh-soroban-3"
+						</div> <a th:href="@{'/' + ${course.url}}"
 						class="card-popup"></a>
 					</li>
 				</ul>
