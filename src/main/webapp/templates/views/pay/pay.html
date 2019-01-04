@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pay</title>
+    <link href="https://media-kyna.cdn.vccloud.vn/css/feedback.css?v=3" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/main.min.css?v=152179552109" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.carousel.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.theme.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.transitions.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style.css">
+
+    <!-- <link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="../../../js/main.js"></script>
+</head>
+
+<body>
+    <div class="loading-checkout">
+    </div>
+    <div class="checkout" id="checkout-home">
+        <div class="wrap-content">
+            <div class="container">
+                <ul class="clearfix wrap-main">
+                    <li class="col-xs-12 wrap-content-left col">
+                        <div class="checkout-header clearfix">
+                            <div class="left-first col-sm-4 col-xs-6 pd0">
+                                <h2 class="logo">
+                                    <a href="/">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/img/logo/Kynavnraftlogo.svg" alt="Kyna.vn" class="img-responsive">
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="right-first col-sm-8 col-xs-6 pd0">
+                                <ul>
+                                    <li>
+                                        <span class="bold text-transform">Hotline</span>
+                                    </li>
+                                    <li>
+                                        <span class="color-green bold">1900 6364 09</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="checkout-list-part pc">
+                            <li>
+                                <span class="checkout-span">Xem giỏ hàng</span>
+                                <span class="checkout-triangle-right"></span>
+                            </li>
+                            <li>
+                                <span class="checkout-triangle-left"></span>
+                                <span class="checkout-span">Chọn cách thanh toán và điền thông tin</span>
+                                <span class="checkout-triangle-right"></span>
+                            </li>
+                            <li>
+                                <span class="checkout-triangle-left"></span>
+                                <span class="checkout-span">Hoàn tất đơn hàng</span>
+                            </li>
+                        </ul>
+                        <ul class="checkout-list-part mb">
+                            <li>
+                                <span class="checkout-span">Giỏ hàng</span>
+                                <span class="checkout-triangle-right"></span>
+                            </li>
+                            <li>
+                                <span class="checkout-triangle-left"></span>
+                                <span class="checkout-span">Thanh toán</span>
+                                <span class="checkout-triangle-right"></span>
+                            </li>
+                            <li>
+                                <span class="checkout-triangle-left"></span>
+                                <span class="checkout-span">Hoàn tất</span>
+                            </li>
+                        </ul>
+                        <div class="checkout-wrap-content">
+                            <form id="checkout-form" class="clearfix" action="/thanh-toan" method="POST">
+                                <input type="hidden" name="_csrf" value="RmM4NnRnQUwnFnxYDg8SKzYqfHwjHTE1BxlwRxNSBy4gAQFvAgYHeg==">
+                                <input type="hidden" id="paymentform-promotion_code" name="PaymentForm[promotion_code]">
+                                <div class="checkout-free-content">
+                                    <img src="https://media-kyna.cdn.vccloud.vn/img/checkout/icon-free-checkout.png" alt="Bạn được miễn phí khóa học này" class="img-responsive">
+                                    <h2>Bạn được miễn phí khóa học này</h2>
+                                    <p>Ngay sau khi hoàn tất, bạn có thể bắt đầu tham gia học trên Kyna.vn</p>
+                                </div>
+                                <div class="info-checkout">
+                                    <h3>THÔNG TIN MUA HÀNG</h3>
+                                    <div class="clearfix">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="form-group field-paymentform-email required">
+                                                <fieldset class="readonly">
+                                                    <legend>
+                                                        <label class="control-label" for="paymentform-email">Email đăng ký học</label>
+                                                        <span>*</span>
+                                                    </legend>
+                                                    <input type="text" id="paymentform-email" class="form-control" name="PaymentForm[email]" value="lexuanduy07@gmail.com" readonly="">
+                                                </fieldset>
+                                                <div class="help-block input-error"></div>
+                                            </div>
+                                            <div class="note-email"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="form-group field-paymentform-contact_name required">
+                                                <fieldset>
+                                                    <legend>
+                                                        <label class="control-label" for="paymentform-contact_name">Họ tên</label>
+                                                        <span>*</span>
+                                                    </legend>
+                                                    <input type="text" id="paymentform-contact_name" class="form-control" name="PaymentForm[contact_name]" value="duy">
+                                                </fieldset>
+                                                <div class="help-block input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6">
+                                            <div class="form-group field-paymentform-phone_number required">
+                                                <fieldset>
+                                                    <legend>
+                                                        <label class="control-label" for="paymentform-phone_number">Số điện thoại</label>
+                                                        <span>*</span>
+                                                    </legend>
+                                                    <input type="text" id="paymentform-phone_number" class="form-control" name="PaymentForm[phone_number]" value="0989773866">
+                                                </fieldset>
+                                                <div class="help-block input-error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="col-xs-12 col-sm-6" visible-input="address" style="display: none">
+                                            <div class="form-group field-paymentform-street_address">
+                                                <fieldset>
+                                                    <legend>
+                                                        <label class="control-label" for="paymentform-street_address">Địa chỉ</label>
+                                                        <span>*</span>
+                                                    </legend>
+                                                    <textarea id="paymentform-street_address" class="form-control" name="PaymentForm[street_address]" rows="2"></textarea>
+                                                </fieldset>
+                                                <div class="help-block input-error"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6" visible-input="note" style="display: none">
+                                            <div class="form-group field-note">
+                                                <fieldset>
+                                                    <legend>
+                                                        <label class="control-label" for="note">Ghi chú</label>
+                                                    </legend>
+                                                    <textarea id="note" class="form-control" name="PaymentForm[note]" rows="2"></textarea>
+                                                </fieldset>
+                                                <div class="help-block input-error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wrap-checkout-button-pc">
+                                    <div class="container">
+                                        <div class="clearfix">
+                                            <div class="item">
+                                                <span>Phương thức thanh toán</span>
+                                                <br>
+                                                <span>
+                                                    <b for-id="method">
+                                                    </b>
+                                                </span>
+                                            </div>
+                                            <div class="item">
+                                                <span>Tổng số tiền thanh toán</span>
+                                                <br>
+                                                <span>
+                                                    <b>0&nbsp;₫</b>
+                                                </span>
+                                            </div>
+                                            <div class="item">
+                                                <span>Email tài khoản</span>
+                                                <br>
+                                                <span>
+                                                    <b for-id="email">lexuanduy07@gmail.com</b>
+                                                </span>
+                                            </div>
+                                            <div class="button">
+                                                <div class="tool-tip">Chọn phương thức thanh toán và điền các thông tin để "Hoàn tất đơn hàng"</div>
+                                                <button class="checkout-button">
+                                                    <b>HOÀN TẤT ĐƠN HÀNG</b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <style type="text/css">
+                                #checkout-mastercard label {
+                                    background: url(../img/checkout/logo-visa-master.png) no-repeat top calc(50% + 7px) right 20px
+                                }
+
+                                @media (max-width:1199px) and (min-width:768px) {
+                                    #checkout-home.checkout input[type=checkbox]:not(old)+label>span,
+                                    .checkout input[type=radio]:not(old)+label>span {
+                                        position: relative;
+                                        top: -5px
+                                    }
+                                }
+
+                                @media (max-width:1199px) {
+                                    #checkout-mastercard label {
+                                        background: none
+                                    }
+                                }
+
+                                #checkout-home.checkout input[type=checkbox]:not(old)+label>span,
+                                .checkout input[type=radio]:not(old)+label>span {
+                                    vertical-align: initial
+                                }
+
+                                #checkout-home.checkout div.checkout-list label methodname span {
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%)
+                                }
+
+                                #checkout-home.checkout div.checkout-list label methodname {
+                                    position: relative
+                                }
+                            </style>
+                            <script>
+                                function Copyvoucher() {
+                                    var copyText = document.getElementById("showvoucher");
+                                    copyText.select();
+                                    document.execCommand("copy");
+                                }
+                            </script>
+                            <style>
+                                #modalvoucher .modal-body {
+                                    background-image: url(https://media-kyna.cdn.vccloud.vn/img/voucher-free/bg-popup-voucher-free.png);
+                                    background-position: top;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    text-align: center;
+                                    padding: 20px 40px;
+                                    color: #fff
+                                }
+
+                                #modalvoucher .modal-body .title {
+                                    margin-bottom: 15px
+                                }
+
+                                #modalvoucher .modal-body .title-sp {
+                                    display: none
+                                }
+
+                                #modalvoucher .modal-body .copy-voucher p {
+                                    padding-bottom: 10px;
+                                    font-weight: 700;
+                                    font-size: 15px;
+                                    margin-bottom: 0
+                                }
+
+                                #modalvoucher .modal-body .copy-voucher input {
+                                    width: 182px;
+                                    height: 35px;
+                                    padding: 5px 10px;
+                                    font-weight: 700;
+                                    color: #000;
+                                    font-size: 15px;
+                                    border: none;
+                                    outline: none;
+                                    border-radius: 5px 0 0 5px
+                                }
+
+                                #modalvoucher .modal-body .copy-voucher a {
+                                    background-color: #ffe800;
+                                    color: #000;
+                                    font-size: 12px;
+                                    font-weight: 700;
+                                    padding: 12px 12px 9px;
+                                    position: relative;
+                                    left: -4px;
+                                    border-radius: 0 5px 5px 0
+                                }
+
+                                #modalvoucher .modal-body .copy-voucher a:active {
+                                    background-color: #e5d000
+                                }
+
+                                #modalvoucher .modal-body ul {
+                                    text-align: left;
+                                    padding: 15px 0 0 0;
+                                    font-size: 14px;
+                                    line-height: 1.4;
+                                    margin-bottom: 20px
+                                }
+
+                                #modalvoucher .modal-body ul li {
+                                    padding-bottom: 8px;
+                                    position: relative;
+                                    text-align: justify;
+                                    display: block;
+                                    vertical-align: initial
+                                }
+
+                                #modalvoucher .modal-body ul li:before {
+                                    content: '\f0da';
+                                    font-family: FontAwesome;
+                                    position: absolute;
+                                    left: -10px
+                                }
+
+                                #modalvoucher .modal-body .fb-share {
+                                    border: 1px solid #fff;
+                                    padding: 10px 20px;
+                                    font-size: 15px;
+                                    font-weight: 700;
+                                    border-radius: 30px;
+                                    color: #fff;
+                                    margin-bottom: 15px
+                                }
+
+                                #modalvoucher .modal-body .fb-share:before {
+                                    content: '\f09a';
+                                    font-family: FontAwesome;
+                                    margin-right: 8px
+                                }
+
+                                #modalvoucher .modal-body .lp-voucher {
+                                    margin: 20px 0 0 0
+                                }
+
+                                #modalvoucher .modal-body .lp-voucher .lp-link {
+                                    border-bottom: 1px solid #fff;
+                                    font-weight: 700;
+                                    font-size: 15px;
+                                    color: #fff
+                                }
+
+                                #modalvoucher button {
+                                    position: absolute;
+                                    right: -20px;
+                                    top: -20px;
+                                    padding: 0 10px;
+                                    border-radius: 50%;
+                                    background: #fff;
+                                    z-index: 1;
+                                    opacity: 1
+                                }
+
+                                #modalvoucher button span {
+                                    font-size: 40px;
+                                    font-weight: 400;
+                                    color: gray
+                                }
+
+                                #modalvoucher .modal-footer {
+                                    padding: 18px;
+                                    text-align: center;
+                                    background-color: #dd4f1b;
+                                    border-top: none;
+                                    color: #fff
+                                }
+
+                                #modalvoucher .modal-footer p {
+                                    font-size: 15px;
+                                    line-height: 1.4;
+                                    margin-bottom: 0
+                                }
+
+                                #modalvoucher .modal-footer p br {
+                                    display: none
+                                }
+
+                                #modalvoucher .modal-footer p span {
+                                    font-weight: 700
+                                }
+
+                                @media screen and (max-width:425px) {
+                                    #modalvoucher .modal-body .title-sp {
+                                        display: block;
+                                        margin: 0 auto;
+                                        margin-bottom: 15px
+                                    }
+                                    #modalvoucher .modal-body .title {
+                                        display: none
+                                    }
+                                    #modalvoucher .modal-body {
+                                        padding: 20px
+                                    }
+                                    #modalvoucher .modal-body .copy-voucher input {
+                                        width: 154px
+                                    }
+                                    #modalvoucher .modal-footer p br {
+                                        display: block
+                                    }
+                                }
+                            </style>
+                        </div>
+                        <div class="wrap-content-right">
+                            <div class="fixed-flag"></div>
+                            <div class="wrap">
+                                <h4>
+                                    <img src="https://media-kyna.cdn.vccloud.vn/img/icon-mini-cart.png" alt="">
+                                    <b>
+                                        <span class="color-green">1 khóa học</span>
+                                    </b>
+                                    <a href="/gio-hang">Thay đổi</a>
+                                </h4>
+                                <ul class="list">
+                                    <li class="clearfix" data-id="112" data-price="0" data-course-type="1">
+                                        <div class="col-sm-9 col-xs-8 title pd0 text">
+                                            <h6>Dạy con theo phương pháp người Do Thái
+                                                <a class="product-hidden-link" href="/day-con-theo-phuong-phap-do-thai-p112" style="display: none">Dạy con theo phương pháp người Do Thái</a>
+                                            </h6>
+                                            <span class="product-hidden-price price" style="display: none;">Miễn phí</span>
+                                        </div>
+                                        <div class="col-sm-3 col-xs-4 price pd0">
+                                            <span>
+                                                <b>
+                                                    Miễn phí </b>
+                                            </span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="checkout-apdung clearfix">
+                                    <p>Mã khuyến mãi (nhập mã và click Áp dụng)</p>
+                                    <form id="promo-code-form" class="clearfix" action="/cart/promo/apply" method="post">
+                                        <input type="hidden" name="_csrf" value="RmM4NnRnQUwnFnxYDg8SKzYqfHwjHTE1BxlwRxNSBy4gAQFvAgYHeg==">
+                                        <div class="form-group input-code field-promocodeform-code required">
+                                            <input type="text" id="promocodeform-code" class="text form-control" name="PromoCodeForm[code]" placeholder="Nhập mã khuyến mãi">
+                                            <p class="help-block help-block-error"></p>
+                                        </div>
+                                        <div class="button-submit">
+                                            <button type="submit" class="btn-send-apdung" onclick="return true;">Áp dụng</button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="error-label">
+                                        </div>
+                                    </form>
+                                    <div class="hint-kyna-code" style="display: none;">
+                                        <img src="https://media-kyna.cdn.vccloud.vn/img/checkout/icon-code-voucher-coupon.png" alt="">
+                                        <span>Nhập mã
+                                            <b class="green">ABCDSD</b>. Giảm ngay abcccc</span>
+                                    </div>
+                                </div>
+                                <script type="text/javascript"></script>
+                                <style>
+                                    .voucher-free-link li {
+                                        display: inline;
+                                        margin-right: 13px
+                                    }
+
+                                    .voucher-free-link a {
+                                        font-size: 12px;
+                                        text-decoration: underline !important
+                                    }
+                                </style>
+                                <div class="checkout-list-price">
+                                    <ul>
+                                        <li>
+                                            <span>Học phí gốc</span>
+                                            <span class="price total-cost" data-price="0">
+                                                <b>0&nbsp;₫</b>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>Giảm giá</span>
+                                            <span class="price">
+                                                <b> 0&nbsp;₫</b>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="color-orange">
+                                                <b>THÀNH TIỀN</b>
+                                            </span>
+                                            <span class="price total-price color-orange">
+                                                <b>0&nbsp;₫</b>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <div class="note-cod">
+                                        <b>Lưu ý:</b>
+                                        <i>Chưa bao gồm phí vận chuyển</i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="re-money">
+                                <img src="https://media-kyna.cdn.vccloud.vn/img/checkout/hoan-tien.png" alt="">
+                                <p>Hoàn học phí trong vòng 30 ngày nếu không hài lòng về khóa học</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

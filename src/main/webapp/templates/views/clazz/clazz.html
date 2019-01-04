@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Class</title>
+    <link href="https://media-kyna.cdn.vccloud.vn/css/feedback.css?v=3" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/main.min.css?v=152179552109" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.carousel.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.theme.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/owl.transitions.css" rel="stylesheet">
+    <link type="text/css" href="https://media-kyna.cdn.vccloud.vn/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/style-clazz.css">
+
+    <!-- <link rel="stylesheet"
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="../../../js/main.js"></script>
+</head>
+
+<body>
+    <main>
+        <section class="main-lesson clearfix">
+            <div class="wrap-top col-xs-12">
+                <div class="header-lesson col-xs-12 clearfix">
+                    <div class="container">
+                        <div class="courses back">
+                            <link rel="stylesheet" href="https://media-kyna.cdn.vccloud.vn/css/font-awesome.min.css">
+                            <a class="back-mycourse" href="/trang-ca-nhan/khoa-hoc">
+                                <i class="icon-back-mycourse"></i>
+                            </a>
+                        </div>
+                        <a href="/" class="navbar-brand logo col-lg-2 col-md-2">
+                            <img src="https://media-kyna.cdn.vccloud.vn/img/logo/Kynavnraftlogo.svg" alt="Kyna.vn" class="img-fluid">
+                        </a>
+                        <div class="courses title-course hidden-sm-down">
+                            <h4>Kitchen Art Cooking show - Baking class</h4>
+                        </div>
+                        <div class="account dropdown wrap">
+                            <a id="btn-dropdown-mobile-lesson" href="/trang-ca-nhan/khoa-hoc" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="sub-wrap">
+                                    <img src="https://media-kyna.cdn.vccloud.vn/src/img/default.png" class="img-responsive">
+                                    <div class="text">
+                                        <span class="user">duy</span>
+                                        <span class="title">Khóa học của tôi</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul id="dropdown-mobile-lesson" class="dropdown-menu dropdown-user">
+                                <li class="inner clearfix">
+                                    <ul>
+                                        <li>
+                                            <a href="/trang-ca-nhan/khoa-hoc">
+                                                <span class="icon profile-my-courses"></span>Khóa học của tôi</a>
+                                        </li>
+                                        <li>
+                                            <a href="/trang-ca-nhan/diem">
+                                                <i class="icon fa fa-trophy" aria-hidden="true"></i>Điểm Kpoint</a>
+                                        </li>
+                                        <li>
+                                            <a href="/trang-ca-nhan/giao-dich/chua-hoan-thanh">
+                                                <span class="icon profile-purchase"></span>Lịch sử giao dịch</a>
+                                        </li>
+                                        <li class="edit">
+                                            <a href="/trang-ca-nhan/thong-tin">
+                                                <span class="icon profile-editinfo"></span>Chỉnh sửa thông tin</a>
+                                        </li>
+                                        <li>
+                                            <a href="/kich-hoat" data-toggle="popup" data-target="#activeCOD" data-ajax="" data-push-state="false">
+                                                <span class="icon profile-activation-code"></span>Kích hoạt mã COD</a>
+                                        </li>
+                                        <li class="button-out">
+                                            <form action="/user/security/logout" method="post">
+                                                <input type="hidden" name="_csrf" value="UzNaSUJqLmwyRh4nOAJ9CyN6HgMVEF4VEkkSOCVfaA41UWMQNAtoWg==">
+                                                <a href="javascript:" onclick="$(this).closest('form').submit()">
+                                                    <span class="icon profile-logout">
+                                                        <i class="icon icon-sign-out"></i>
+                                                    </span>Thoát</a>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="group-top col-xs-12 pd0">
+                    <div class="container">
+                        <div class="pull-right background-dark col-md-9 col-xs-12 video_0">
+                            <div id="part-video" class="part-video col-xs-12">
+                                <div id="scroller">
+                                    <div id="bar-scroll" style="width: 44px;">
+                                        <ul id="thelist" class="clearfix">
+                                            <li class="clearfix">
+                                                <a class=" seeing" href="/lop-hoc/72?lesson=1539&amp;title=B%C3%A0i+1%3A+Easy+pizza" data-video-iframe="/course/learning/video-frame?v%5B0%5D=%2Fcourse%2Flearning%2Findex&amp;v%5Bid%5D=72&amp;v%5Blesson%5D=1539&amp;v%5Btitle%5D=B%C3%A0i+1%3A+Easy+pizza">1</a>
+                                            </li>
+                                        </ul>
+                                        <script type="application/javascript">
+                                            if ($('#thelist .seeing').length <= 0) {
+                                                $('#thelist .clearfix a').first().addClass('seeing');
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="tool-bar">
+                                    <div id="view-mode" class="view-mode">Xem kiểu &nbsp;&nbsp;
+                                        <img class="list-view" alt="xem bình thường" src="https://media-kyna.cdn.vccloud.vn/img/list-view.png">&nbsp;
+                                        <img class="full-view" alt="xem toàn trang" src="https://media-kyna.cdn.vccloud.vn/img/full-view.png">
+                                    </div>
+                                    <div class="item-review">
+                                        <span id="click-review-course" class="icon-star-list ">
+                                            <i class="icon icon-star "></i>
+                                            <i class="icon icon-star "></i>
+                                            <i class="icon icon-star "></i>
+                                            <i class="icon icon-star "></i>
+                                            <i class="icon icon-star "></i>
+                                        </span>
+                                    </div>
+                                    <div class="btn-tutorial" onclick="javascript: ActionLesson.TutorialClickPc();">
+                                        <span>
+                                            <img src="https://media-kyna.cdn.vccloud.vn/img/tutorial.png" alt=""> Xem hướng dẫn</span>
+                                    </div>
+                                </div>
+                                <div class="pre">
+                                    <i class="icon-arrow-left"></i>
+                                </div>
+                                <div class="nex">
+                                    <i class="icon-arrow-right"></i>
+                                </div>
+                            </div>
+                            <div class="review-course" id="review-course">
+                                <div class="k-course-reviews-wrap">
+                                    <div class="k-course-reviews-rate">
+                                        <center>
+                                            <div class="tit-review">Các đánh giá của bạn giúp người học khác dễ dàng lựa chọn khoá học</div>
+                                            <div class="button">
+                                                <button id="show-review" type="submit" class="btn btn-submit-rating" style="margin-top: 20px;">Gửi đánh giá</button>
+                                                <br>
+                                                <br>
+                                                <button id="hide-review" type="submit" class="btn btn-ignore-rating">Bỏ qua đánh giá</button>
+                                            </div>
+                                        </center>
+                                    </div>
+                                </div>
+                                <div class="k-course-reviews-wrap hide">
+                                    <div class="k-course-reviews-rate">
+                                        <p class="text-top">Đánh giá của bạn</p>
+                                        <div id="course-rating-form-div">
+                                            <form id="intro_form_review" name="intro_form_review" action="/course/default/review?course_id=72" method="post" data-ajax=""
+                                                accept-charset="utf-8" data-target="#course-rating-form-div">
+                                                <input type="hidden" name="_csrf" value="UzNaSUJqLmwyRh4nOAJ9CyN6HgMVEF4VEkkSOCVfaA41UWMQNAtoWg==">
+                                                <div class="alert alert-warning error-summary" style="display:none">
+                                                    <p>Vui lòng sửa các lỗi sau đây:</p>
+                                                    <ul></ul>
+                                                </div>
+                                                <ul>
+                                                    <li for="course">
+                                                        <span>Bài giảng</span>
+                                                        <span class="icon-star-list">
+                                                            <i class="icon icon-star " data-text="(Kém)"></i>
+                                                            <i class="icon icon-star " data-text="(Chưa tốt)"></i>
+                                                            <i class="icon icon-star " data-text="(Đạt)"></i>
+                                                            <i class="icon icon-star " data-text="(Khá)"></i>
+                                                            <i class="icon icon-star " data-text="(Tốt)"></i>
+                                                            <text-des></text-des>
+                                                            <text-des-active></text-des-active>
+                                                        </span>
+                                                        <div class="popup-guide">
+                                                            Bao gồm nội dung bài giảng, cách sắp xếp mục lục bài, kiến thức trong bài, nội dung bài test …
+                                                            <close>x</close>
+                                                        </div>
+                                                    </li>
+                                                    <li for="video">
+                                                        <span>Video</span>
+                                                        <span class="icon-star-list">
+                                                            <i class="icon icon-star " data-text="(Kém)"></i>
+                                                            <i class="icon icon-star " data-text="(Chưa tốt)"></i>
+                                                            <i class="icon icon-star " data-text="(Đạt)"></i>
+                                                            <i class="icon icon-star " data-text="(Khá)"></i>
+                                                            <i class="icon icon-star " data-text="(Tốt)"></i>
+                                                            <text-des></text-des>
+                                                            <text-des-active></text-des-active>
+                                                        </span>
+                                                        <div class="popup-guide">
+                                                            Bao gồm cách trình bày, chất lượng, hình ảnh trong video bài học …
+                                                            <close>x</close>
+                                                        </div>
+                                                    </li>
+                                                    <li for="teacher">
+                                                        <span>Giảng viên</span>
+                                                        <span class="icon-star-list">
+                                                            <i class="icon icon-star " data-text="(Kém)"></i>
+                                                            <i class="icon icon-star " data-text="(Chưa tốt)"></i>
+                                                            <i class="icon icon-star " data-text="(Đạt)"></i>
+                                                            <i class="icon icon-star " data-text="(Khá)"></i>
+                                                            <i class="icon icon-star " data-text="(Tốt)"></i>
+                                                            <text-des></text-des>
+                                                            <text-des-active></text-des-active>
+                                                        </span>
+                                                        <div class="popup-guide">
+                                                            Bao gồm cách giảng dạy, phong cách dạy, giọng nói giảng viên …
+                                                            <close>x</close>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <script>
+                                                    if ($(window).width() < 767) {
+                                                        $('body').on('click', '#intro_form_review ul li', function () {
+                                                            $('#intro_form_review ul li .popup-guide').removeClass(
+                                                                'open');
+                                                            $(this).find('.popup-guide').addClass('open');
+                                                        })
+                                                        $('body').on('click', '#intro_form_review ul li .popup-guide',
+                                                            function (e) {
+                                                                e.stopPropagation();
+                                                                $(this).removeClass('open');
+                                                            })
+                                                        $(document).mouseup(function (e) {
+                                                            var check_icon_star = $('#intro_form_review ul li');
+                                                            if (!check_icon_star.is(e.target) &&
+                                                                check_icon_star.has(e.target).length === 0) {
+                                                                $(check_icon_star).find('.popup-guide').removeClass(
+                                                                    'open');
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+                                                <input type="hidden" id="video" name="CourseRating[score_of_video]">
+                                                <input type="hidden" id="course" name="CourseRating[score_of_content]">
+                                                <input type="hidden" id="teacher" name="CourseRating[score_of_teacher]">
+                                                <textarea id="courserating-review_content" name="CourseRating[review_content]" rows="3" placeholder="Nhập đánh giá của bạn"></textarea>
+                                                <div class="button">
+                                                    <button type="submit" class="btn btn-submit-rating">Gửi đánh giá</button>
+                                                </div>
+                                            </form>
+                                            <p class="text-bottom">Các đánh giá của bạn giúp người học khác dễ dàng lựa chọn khóa học</p>
+                                        </div>
+                                        <div class="button close-review-form">
+                                            <br>
+                                            <button id="return-courses" type="submit" class="btn btn-ignore-rating">Quay lại bài học</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $('body').on('click', 'form .icon-star-list .icon-star', function () {
+                                        var cur = $(this).parents('li');
+                                        var cur_obj = $(cur).find('.icon-star').removeClass('active');
+                                        var num_cur = $(this).index() + 1;
+                                        $(this).parent().attr('rating', num_cur);
+                                        for (var i = 0; i < num_cur; i++) {
+                                            $(cur_obj[i]).addClass('active');
+                                        }
+                                        $('form[name="intro_form_review"] #' + $(cur).attr('for')).val(num_cur);
+                                        var text = $(this).data('text');
+                                        $(this).parent().find('text-des-active').html(text);
+                                    })
+                                    $('body').on('mouseover', 'form .icon-star-list .icon-star', function () {
+                                        var _index = $(this).index() + 1;
+                                        var obj = $(this).parent().find('.icon-star');
+                                        var obj_hover = $(this).parent().find('.icon-star.active');
+                                        var compare = obj_hover.length - _index;
+                                        if (compare < 0)
+                                            for (var i = 0; i < _index; i++) {
+                                                $(obj[i]).addClass('active');
+                                            } else
+                                                for (var i = _index; i < obj_hover.length; i++) {
+                                                    $(obj[i]).removeClass('active');
+                                                }
+                                        var text = $(this).data('text');
+                                        $(this).parent().find('text-des').show().html(text);
+                                        $(this).parent().find('text-des-active').hide();
+                                    }).on('mouseleave', 'form .icon-star-list', function () {
+                                        var _index = $(this).attr('rating');
+                                        if (_index == undefined) {
+                                            $(this).find('.icon-star').removeClass('active');
+                                        } else {
+                                            var obj = $(this).find('.icon-star');
+                                            var obj_hover = $(this).find('.icon-star.active');
+                                            var compare = obj_hover.length - _index;
+                                            if (compare < 0)
+                                                for (var i = 0; i < _index; i++) {
+                                                    $(obj[i]).addClass('active');
+                                                } else
+                                                    for (var i = _index; i < obj_hover.length; i++) {
+                                                        $(obj[i]).removeClass('active');
+                                                    }
+                                        }
+                                        $(this).find('text-des').hide();
+                                        $(this).find('text-des-active').show();
+                                    })
+                                    $('#click-review-course, #return-courses').on('click', function () {
+                                        $('#review-course').toggleClass('show');
+                                        var cur_path = $('#review-course').find('.k-course-reviews-wrap')[0];
+                                        if ($('#review-course .k-course-reviews-wrap form').length > 0) {
+                                            $(cur_path).removeClass('hide');
+                                            $(cur_path).next('.k-course-reviews-wrap').addClass('hide');
+                                        } else {
+                                            $(cur_path).addClass('hide');
+                                            $(cur_path).next('.k-course-reviews-wrap').removeClass('hide');
+                                        }
+                                        if ($(window).width() < 543) {
+                                            if ($('#review-course').hasClass('show')) {
+                                                $('body').css('overflow', 'hidden');
+                                                $('main').addClass('popup-review-lesson');
+                                            } else {
+                                                $('body').css('overflow', 'auto');
+                                                $('main').removeClass('popup-review-lesson');
+                                            }
+                                        }
+                                    });
+                                    $('#show-review').on('click', function () {
+                                        var cur_path = $(this).parents('.k-course-reviews-wrap');
+                                        $(cur_path).addClass('hide');
+                                        $(cur_path).next('.k-course-reviews-wrap').removeClass('hide');
+                                    });
+                                    $('#hide-review').on('click', function () {
+                                        $('#review-course').toggleClass('show');
+                                        if ($(window).width() < 543) {
+                                            $('body').css('overflow', 'auto');
+                                            $('main').removeClass('popup-review-lesson');
+                                        }
+                                    });
+                                </script>
+                            </div>
+                            <div class="wrap-video-lesson col-xs-12">
+                                <div id="flowplayerhtml5" class="flowplayer no-brand is-ready is-paused is-mouseout" data-lesson-id="1539" data-user-course-id="1302778"
+                                    data-course-id="72" style=" position: relative; z-index: 2" data-flowplayer-instance-id="0">
+
+                                    <div class="fp-ratio" style="padding-top: 56.25%;"></div>
+                                    <div class="fp-player">
+                                        <video class="fp-engine hlsjs-engine" autoplay="" preload="metadata" x-webkit-airplay="allow" src="blob:https://kyna.vn/7f097609-d694-4aa6-88cc-a8e1ed794f5b"></video>
+                                        <div class="flowplayer-end-screen">
+                                            <button class="end-screen-close-button countdown-cancel" style="display: none">X</button>
+                                            <div class="up-next-lesson"></div>
+                                            <div id="svg" class="countdown">
+                                                <div class="countdown-number" href="#">►</div>
+                                                <svg>
+                                                    <circle r="36" cx="50" cy="50"></circle>
+                                                </svg>
+                                                <a class="btn btn-default countdown-cancel" style="font-weight: bolder;">HỦY</a>
+                                            </div>
+                                        </div>
+                                        <div class="fp-ui" title="Hit ? for help">
+                                            <div class="fp-waiting">
+                                                <em></em>
+                                                <em></em>
+                                                <em></em>
+                                            </div>
+                                            <a class="fp-fullscreen"></a>
+                                            <a class="fp-unload"></a>
+                                            <p class="fp-speed"></p>
+                                            <div class="fp-controls">
+                                                <a class="fp-play"></a>
+                                                <div class="fp-timeline">
+                                                    <div class="fp-buffer" style="width: 41.3532%;"></div>
+                                                    <div class="fp-progress animated" style="transition-duration: 250ms; width: 2.4%;"></div>
+                                                </div>
+                                                <div class="fp-timeline-tooltip fp-tooltip" style="left: 170.078px;">03:08</div>
+                                                <div class="fp-volume">
+                                                    <a class="fp-mute"></a>
+                                                    <div class="fp-volumeslider">
+                                                        <div class="fp-volumelevel animated" style="transition-duration: 0ms; width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                                <a class="fp-menu">
+                                                    <ul class="fp-dropdown fp-dropup">
+                                                        <li data-subtitle-index="-1" class="active">No subtitles</li>
+                                                    </ul>
+                                                </a>
+                                            </div>
+                                            <div class="fp-time">
+                                                <em class="fp-elapsed">00:19</em>
+                                                <em class="fp-remaining">-12:57</em>
+                                                <em class="fp-duration">13:16</em>
+                                            </div>
+                                            <div class="fp-message">
+                                                <h2></h2>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="fp-help">
+                                            <a class="fp-close"></a>
+                                            <div class="fp-help-section fp-help-basics">
+                                                <p>
+                                                    <em>space</em>play / pause</p>
+                                                <p>
+                                                    <em>q</em>unload | stop</p>
+                                                <p>
+                                                    <em>f</em>fullscreen</p>
+                                                <p>
+                                                    <em>shift</em> +
+                                                    <em>←</em>
+                                                    <em>→</em>slower / faster</p>
+                                            </div>
+                                            <div class="fp-help-section">
+                                                <p>
+                                                    <em>↑</em>
+                                                    <em>↓</em>volume</p>
+                                                <p>
+                                                    <em>m</em>mute</p>
+                                            </div>
+                                            <div class="fp-help-section">
+                                                <p>
+                                                    <em>←</em>
+                                                    <em>→</em>seek</p>
+                                                <p>
+                                                    <em>&nbsp;. </em>seek to previous </p>
+                                                <p>
+                                                    <em>1</em>
+                                                    <em>2</em>…
+                                                    <em>6</em> seek to 10%, 20% … 60% </p>
+                                            </div>
+                                        </div>
+                                        <div class="fp-subtitle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-menu-mobile clearfix col-md-3 col-xs-12">
+                                <div id="mobile-tab" class="mobile-tab col-xs-12">
+                                    <ul class="nav nav-tabs sub-menu" id="mobile-tab-sub" style="transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                        <li class="active-tab">
+                                            <a data-toggle="tab" href="#content-tab-lesson">Nội dung</a>
+                                        </li>
+                                        <li class="hidden-md-up">
+                                            <a data-toggle="tab" href="#question-tab-lesson">Hỏi giảng viên</a>
+                                        </li>
+                                        <li class="hidden-md-up">
+                                            <a data-toggle="tab" href="#discuss-tab-lesson">Thảo luận</a>
+                                        </li>
+                                        <li id="li-mission-tab">
+                                            <a data-toggle="tab" href="#mission-tab-content" id="tab-mission">Nhiệm vụ</a>
+                                        </li>
+                                        <li id="li-note-tab">
+                                            <a data-toggle="tab" href="#note-tab-lesson">Ghi chú</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="box-of-menutabs" id="content-tab-lesson">
+                                    <div class="scroll-box">
+                                        <ul class="detail-part show">
+                                            <li class="title-part">
+                                                <i class="icon-arrow-collapse-open hidden-sm-down"></i>
+                                                Phần 1: Easy bake tasty cake
+                                                <i class="icon-arrow-down pull-right hidden-md-up"></i>
+                                            </li>
+                                            <li class="sub-part see-ing">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11326">
+                                                    Bài 1: Easy pizza</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11325">
+                                                    Bài 2: Hoa quả nướng vani - món tráng miệng đặc biệt thú vị</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11327">
+                                                    Bài 3: Bánh chocolate 5 phút</a>
+                                            </li>
+                                        </ul>
+                                        <ul class="detail-part show">
+                                            <li class="title-part">
+                                                <i class="icon-arrow-collapse-open hidden-sm-down"></i>
+                                                Phần 2: Baking class level 2
+                                                <i class="icon-arrow-down pull-right hidden-md-up"></i>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11328">
+                                                    Bài 4: Mangomisu - hay Tiramisu xoài</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11329">
+                                                    Bài 5: Cheesecake chanh vàng kiểu New York</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11330">
+                                                    Bài 6: Bánh cà rốt</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11331">
+                                                    Đánh giá và góp ý cho khóa học</a>
+                                            </li>
+                                            <li class="sub-part">
+                                                <a class="icon-text-wrapping" href="/lop-hoc/72/11332">
+                                                    Các khóa học liên quan</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box-of-menutabs" id="mission-tab-content" style="display: none;">
+                                </div>
+                                <div class="box-of-menutabs" id="note-tab-lesson" data-id="1539" style="display: none;">
+                                    <style>
+                                        @media (max-width:767px) {
+                                            .main-lesson .group-top .pull-right {
+                                                height: auto !important
+                                            }
+                                        }
+                                    </style>
+                                    <ul id="w1" class="clearfix" style="margin-right: 5px;">
+                                        <div class="empty">Không tìm thấy kết quả nào.</div>
+                                    </ul>
+                                </div>
+                                <form id="add-note-form" action="/course/course-note/add" method="post">
+                                    <input type="hidden" name="_csrf" value="UzNaSUJqLmwyRh4nOAJ9CyN6HgMVEF4VEkkSOCVfaA41UWMQNAtoWg==">
+                                    <input type="hidden" name="id" value="1539">
+                                    <input type="hidden" id="playback-time" name="t" value="0">
+                                    <textarea id="note-input" class="add-note hidden-sm-down" name="note" placeholder="Nhập ghi chú và Enter để lưu lại"></textarea>
+                                </form>
+                                <script type="text/javascript">
+                                    $('#note-input').keypress(function (e) {
+                                        if (e.which == 13) {
+                                            var note = $('#note-input').val();
+                                            if (empty(note) === true) {
+                                                alert('Bạn chưa nhập ghi chú');
+                                                return false;
+                                            }
+                                            var playbackTime = 0;
+                                            if (typeof player !== 'undefined') {
+                                                if (player != null) {
+                                                    playbackTime = player.video.time;
+                                                }
+                                            }
+                                            $('#add-note-form').find("#playback-time").val(playbackTime);
+                                            $('#add-note-form').submit();
+                                            return false;
+                                        }
+                                    });
+                                    $('#add-note-form').on("submit", function (e) {
+                                        e.preventDefault();
+                                        var $form = $(this),
+                                            url = this.action,
+                                            data = $form.serialize();
+                                        var note = $('#note-input').val();
+                                        if (empty(note) === true) {
+                                            alert('Bạn chưa nhập ghi chú');
+                                            return false;
+                                        }
+                                        $.post(url, data, function (response) {
+                                            console.log(response);
+                                            if (response.success !== false) {
+                                                $('#note-input').val("");
+                                                updateNoteList(function () {
+                                                    $('a[href="#note-tab-lesson"]').click();
+                                                });
+                                            }
+                                        });
+                                    });
+
+                                    function empty(str) {
+                                        if (typeof str == 'undefined' || !str || str.length === 0 || str === "" || !
+                                            /[^\s]/.test(str) || /^\s*$/.test(str) || str.replace(/\s/g, "") === "") {
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    }
+                                    var $noteList = $("#note-tab-lesson");
+
+                                    function updateNoteList(callback) {
+                                        $.ajaxSetup({
+                                            'method': 'GET'
+                                        });
+                                        $noteList.load('/course/course-note/get?id=' + $noteList.data('id'), callback);
+                                    }
+                                </script>
+                                <div class="feedback-lesson hidden-md-down">
+                                    <div class="banner-lesson large-banner">
+                                        <a href="https://www.facebook.com/TuyenDungKyna/photos/a.824520251010427/1740723689390074/?type=1&amp;theater" target="_blank">
+                                            <img class="" src="https://media-kyna.cdn.vccloud.vn/img/lesson/banner-lesson.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="box-hotline icon-hot-line">
+                                        <p class="title-hotline">Gọi
+                                            <span>1900 6364 09</span>
+                                        </p>
+                                        <p>Cần hỗ trợ hướng dẫn khi học</p>
+                                    </div>
+                                    <div class="socialmedia">
+                                        <div id="fb-root" class=" fb_reset">
+                                            <div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
+                                                <div>
+                                                    <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true"
+                                                        allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https"
+                                                        aria-hidden="true" title="Facebook Cross Domain Communication Frame"
+                                                        tabindex="-1" src="https://staticxx.facebook.com/connect/xd_arbiter/r/j-GHT1gpo6-.js?version=43#channel=f2081d4cd6d24dc&amp;origin=https%3A%2F%2Fkyna.vn"
+                                                        style="border: none;"></iframe>
+                                                </div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            (function (d, s, id) {
+                                                var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (d.getElementById(id)) return;
+                                                js = d.createElement(s);
+                                                js.id = id;
+                                                js.src =
+                                                    "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0&appId=191634267692814";
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                            }(document, 'script', 'facebook-jssdk'));
+                                        </script>
+                                        <div class="fb-like fb_iframe_widget" data-href="http://kyna.vn//lop-hoc/72" data-layout="standard" data-width="200" data-action="like"
+                                            data-size="small" data-show-faces="false" data-share="true" fb-xfbml-state="rendered"
+                                            fb-iframe-plugin-query="action=like&amp;app_id=191634267692814&amp;container_width=275&amp;href=http%3A%2F%2Fkyna.vn%2F%2Flop-hoc%2F72&amp;layout=standard&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;size=small&amp;width=200">
+                                            <span style="vertical-align: bottom; width: 225px; height: 56px;">
+                                                <iframe name="f29285509918c4" width="200px" height="1000px" frameborder="0" allowtransparency="true"
+                                                    allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin"
+                                                    src="https://www.facebook.com/v2.0/plugins/like.php?action=like&amp;app_id=191634267692814&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2Fj-GHT1gpo6-.js%3Fversion%3D43%23cb%3Df7c94c3ec121e4%26domain%3Dkyna.vn%26origin%3Dhttps%253A%252F%252Fkyna.vn%252Ff2081d4cd6d24dc%26relation%3Dparent.parent&amp;container_width=275&amp;href=http%3A%2F%2Fkyna.vn%2F%2Flop-hoc%2F72&amp;layout=standard&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;size=small&amp;width=200"
+                                                    style="border: none; visibility: visible; width: 225px; height: 56px;" class=""></iframe>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $('.wrap-quiz-lesson').on('scroll', function () {
+                                        $('.countdown-time-start').css('top', $(this).scrollTop() - 30 + 'px');
+                                    });
+                                </script>
+                                <script type="text/javascript">
+                                    window.$zopim || (function (d, s) {
+                                        var z = $zopim = function (c) {
+                                                z._.push(c)
+                                            },
+                                            $ = z.s = d.createElement(s),
+                                            e = d.getElementsByTagName(s)[0];
+                                        z.set = function (o) {
+                                            z.set._.push(o)
+                                        };
+                                        z._ = [];
+                                        z.set._ = [];
+                                        $.async = !0;
+                                        $.setAttribute("charset", "utf-8");
+                                        $.src = "//v2.zopim.com/?1bMWnWprkt76mXJXRb6xBuP2dAD7uxPq";
+                                        z.t = +new Date;
+                                        $.type = "text/javascript";
+                                        e.parentNode.insertBefore($, e)
+                                    })(document, "script");
+                                </script>
+                                <script type="text/javascript">
+                                    $(window).load(function () {
+                                        $zopim(function () {
+                                            $zopim.livechat.setLanguage('vi');
+                                        });
+                                        $zopim(function () {
+                                            $zopim.livechat.window.hide();
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
