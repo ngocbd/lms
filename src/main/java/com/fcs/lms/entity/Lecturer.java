@@ -26,11 +26,11 @@ public class Lecturer {
 		this.education = education;
 	}
 
-	public int getExperience() {
+	public String getExperience() {
 		return experience;
 	}
 
-	public void setExperience(int experience) {
+	public void setExperience(String experience) {
 		this.experience = experience;
 	}
 
@@ -58,7 +58,7 @@ public class Lecturer {
 	private String name;
 	private String objective;
 	private String education;
-	private int experience;
+	private String experience;
 	private int lecturerTime;
 	private String position;
 }

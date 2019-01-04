@@ -99,7 +99,7 @@ public class HomeController {
 		ApiFuture<QuerySnapshot> future1 = db.collection("courses").whereEqualTo("url", name).get();
 		List<QueryDocumentSnapshot> documents = future1.get().getDocuments();
 		Course course = null;
-		
+
 		for (DocumentSnapshot document1 : documents) {
 			DocumentReference docRef = db.collection("courses").document(document1.getId());
 			// asynchronously retrieve the document
@@ -108,7 +108,7 @@ public class HomeController {
 			DocumentSnapshot document2 = future2.get();
 			course = document2.toObject(Course.class);
 		}
-		
+
 		ApiFuture<QuerySnapshot> queryPart = db.collection("parts").whereEqualTo("courseName", course.getName()).get();
 		// get part document
 		List<QueryDocumentSnapshot> partDocuments = queryPart.get().getDocuments();
@@ -125,25 +125,28 @@ public class HomeController {
 		}
 
 		// get lecturer detail
-		ApiFuture<QuerySnapshot> futureLec = db.collection("lecturers").whereEqualTo("url", name).get();
-		DocumentReference docRef = db.collection("cities").document(course.getLecturerId());
-		// asynchronously retrieve the document
+		DocumentReference docRef = db.collection("lecturers").document(course.getLecturerId());
 		ApiFuture<DocumentSnapshot> future = docRef.get();
-		// block on response
 		DocumentSnapshot document = future.get();
 		Lecturer lecturer = null;
 		if (document.exists()) {
-			// convert document to POJO
 			lecturer = document.toObject(Lecturer.class);
 			System.out.println(lecturer);
 		} else {
 			System.out.println("No such document!");
 		}
-
+		
+		//get list course suggest
+		ApiFuture<QuerySnapshot> queryCourses = db.collection("courses").whereEqualTo("category", course.getCategory()).get();
+		List<Course> courses = queryCourses.get().toObjects(Course.class);
+		LOGGER.info("category course: " + course.getCategory());
+		LOGGER.info("courses: " + courses.toString());
+		
 		model.addAttribute("course", course);
 		model.addAttribute("parts", parts);
 		model.addAttribute("lessons", listMap);
 		model.addAttribute("lecturer", lecturer);
+		model.addAttribute("courses", courses);
 		return "views/home/detail";
 	}
 

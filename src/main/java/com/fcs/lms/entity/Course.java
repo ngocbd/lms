@@ -25,6 +25,14 @@ public class Course {
 		this.author = author;
 	}
 
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public String getObjective() {
 		return objective;
 	}
@@ -49,6 +57,14 @@ public class Course {
 		this.hotCourse = hotCourse;
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public int getDuration() {
 		return duration;
 	}
@@ -65,11 +81,11 @@ public class Course {
 		this.price = price;
 	}
 
-	public String getPriceUnit() {
+	public double getPriceUnit() {
 		return priceUnit;
 	}
 
-	public void setPriceUnit(String priceUnit) {
+	public void setPriceUnit(double priceUnit) {
 		this.priceUnit = priceUnit;
 	}
 
@@ -89,6 +105,14 @@ public class Course {
 		this.lecturerId = lecturerId;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String toString() {
 		return this.name;
 	}
@@ -96,13 +120,16 @@ public class Course {
 	private String name;
 	private String intro;
 	private String author;
+	private String category;
 	private String objective;
 	private String description;
 	private int hotCourse;
+	private String img;
 	private int duration;
 	private double price;
-	private String priceUnit;
+	private double priceUnit;
 	private int hours;
 	private String lecturerId;
+	private String url;
 
 }

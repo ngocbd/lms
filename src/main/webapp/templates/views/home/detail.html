@@ -22,24 +22,24 @@
                     <li>
                         <a href="/danh-sach-khoa-hoc">Danh sách khóa học</a>
                     </li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" th:each="objCourse : ${course}">
                         <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" id="https://kyna.vn/danh-sach-khoa-hoc/ngoai-ngu" href="https://kyna.vn/danh-sach-khoa-hoc/ngoai-ngu">
-                            <span itemprop="name">Ngoại ngữ</span>
+                            <span itemprop="name" th:text="${objCourse.category}"></span>
                             <meta itemprop="url" content="">
                         </a>
                         <meta itemprop="position" content="2">
                     </li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" th:each="objCourse : ${course}">
                         <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" id="https://kyna.vn/danh-sach-khoa-hoc/ngoai-ngu/tieng-trung"
                             href="https://kyna.vn/danh-sach-khoa-hoc/ngoai-ngu/tieng-trung">
-                            <span itemprop="name">Tiếng Trung</span>
+                            <span itemprop="name" th:text="${objCourse.name}"></span>
                             <meta itemprop="url" content="https://kyna.vn/danh-sach-khoa-hoc/ngoai-ngu/tieng-trung">
                         </a>
                         <meta itemprop="position" content="3">
                     </li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" th:each="objCourse : ${course}">
                         <a itemscope="" itemtype="http://schema.org/Thing" itemprop="item" id="tieng-hoa-cho-nguoi-moi-bat-dau-1" href="tieng-hoa-cho-nguoi-moi-bat-dau-1">
-                            <span itemprop="name">Tiếng Hoa cho người mới bắt đầu 1</span>
+                            <span itemprop="name" th:text="${objCourse.description}"></span>
                             <meta itemprop="url" content="tieng-hoa-cho-nguoi-moi-bat-dau-1">
                         </a>
                         <meta itemprop="position" content="4">
@@ -49,37 +49,8 @@
         </div>
         <section>
             <div class="k-course-details-header container" data-id="91" data-course-type="1">
-                <div class="k-course-details-title">
-                    <h1>Tiếng Hoa cho người mới bắt đầu 1</h1>
-                    <a href="/giang-vien/nguyen-minh-thuy">Nguyễn Minh Thúy</a>
-                    <span>
-                        <b>,</b>
-                        Giảng viên trường ĐH KHXH &amp; NV TP.HCM</span>
-                    <div class="rating-box clearfix">
-                        <div class="dot" position="1">
-                            <i class="fa fa-circle" aria-hidden="true"></i>
-                        </div>
-                        <div class="rating-text">
-                            <b>4.6
-                                <i class="icon icon-star"></i>
-                            </b>
-                            <span>(35
-                                <detail>
-                                    đánh giá</detail>)
-                            </span>
-                        </div>
-                        <div class="dot" position="2">
-                            <i class="fa fa-circle" aria-hidden="true"></i>
-                        </div>
-                        <div class="number-student">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>8759
-                                <span>học viên
-                                </span>
-                                <detail> đăng ký học</detail>
-                            </span>
-                        </div>
-                    </div>
+                <div class="k-course-details-title" th:each="objCourse : ${course}">
+                    <h1 th:text="${objCourse.description}"></h1>
                     <div class="col-xl-8 col-md-11 col-xs-12 k-course-details-video">
                         <div class="videoWrapper ">
                             <div id="play_video" class="cursor-pointer">
@@ -136,7 +107,7 @@
                             </li>
                             <li class="price-list">
                                 <ul>
-                                    <li>
+                                    <li  th:each="objCourse : ${course}">
                                         <div class="hidden-xl-up">
                                             <b>
                                                 <i class="fa fa-tags"></i>
@@ -146,17 +117,17 @@
                                         </div>
                                         <span class="price-sale">
                                             <b>
-                                                <i class="fa fa-tags hidden-lg-down"></i> 199.000đ
+                                                <i class="fa fa-tags hidden-lg-down" th:text="${objCourse.priceUnit}"></i> đ
                                                 <span class="hidden-lg-down"></span>
                                             </b>
                                         </span>
                                         <span class="price-old">
-                                            <s>(300.000đ)</s>
+                                            (<s th:text="${objCourse.price}"></s>đ)
                                         </span>
-                                        <span class="price-discount">
+                                        <!-- <span class="price-discount">
                                             <span class="hidden-lg-down">(</span>-34%
                                             <span class="hidden-lg-down">)</span>
-                                        </span>
+                                        </span> -->
                                     </li>
                                 </ul>
                             </li>
@@ -171,10 +142,10 @@
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span>Trình độ: Mới bắt đầu</span>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <i class="fa fa-play-circle" aria-hidden="true"></i>
                                         <span>Bài học: 70 bài</span>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <i class="fa fa-eye" aria-hidden="true"></i> Xem được trên máy tính, điện thoại, tablet</li>
                                     <li>
@@ -191,64 +162,15 @@
                             <li class="button">
                                 <ul>
                                     <li class="action-button">
-                                        <a class="btn-buy-now dang-ky-hoc hidden-md-down" href="#" action="AddToCart" data-ga="event" data-pid="91" style="text-align: center;"
+                                        <a class="btn-buy-now dang-ky-hoc hidden-md-down" href="/pay" action="AddToCart" data-ga="event" data-pid="91" style="text-align: center;"
                                             category="CourseDetail" label="Tiếng Hoa cho người mới bắt đầu 1">
                                             <b>MUA NGAY</b>
                                         </a>
-                                        <a class="go-to-cart add-to-cart dang-ky-hoc" href="#" action="AddToCart" data-ga="event" data-pid="91" style="text-align: center; margin-top: 10px;"
+                                        <!-- <a class="go-to-cart add-to-cart dang-ky-hoc" href="#" action="AddToCart" data-ga="event" data-pid="91" style="text-align: center; margin-top: 10px;"
                                             category="CourseDetail" label="Tiếng Hoa cho người mới bắt đầu 1">
                                             <b class="hidden-md-down">Thêm vào giỏ hàng</b>
                                             <b class="hidden-lg-up">ĐĂNG KÝ HỌC: 199.000đ</b>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <ul class="social-media clearfix">
-                                    <li id="fb-save-button">
-                                        <a data-toggle="dropdown" href="#">
-                                            <div class="fb-save fb_iframe_widget" data-uri="https://kyna.vn/tieng-hoa-cho-nguoi-moi-bat-dau-1" data-size="small" fb-xfbml-state="rendered"
-                                                fb-iframe-plugin-query="app_id=191634267692814&amp;container_width=349&amp;locale=vi_VN&amp;sdk=joey&amp;size=small&amp;uri=https%3A%2F%2Fkyna.vn%2Ftieng-hoa-cho-nguoi-moi-bat-dau-1">
-                                                <span style="vertical-align: bottom; width: 126px; height: 20px;">
-                                                    <iframe name="f2bedfaaa604a" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true"
-                                                        scrolling="no" allow="encrypted-media" title="fb:save Facebook Social Plugin"
-                                                        src="https://www.facebook.com/v2.10/plugins/save.php?app_id=191634267692814&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FLviKjJ9cymB.js%3Fversion%3D43%23cb%3Df163e9301a726d4%26domain%3Dkyna.vn%26origin%3Dhttps%253A%252F%252Fkyna.vn%252Ff3bacdc85687e24%26relation%3Dparent.parent&amp;container_width=349&amp;locale=vi_VN&amp;sdk=joey&amp;size=small&amp;uri=https%3A%2F%2Fkyna.vn%2Ftieng-hoa-cho-nguoi-moi-bat-dau-1"
-                                                        style="border: none; visibility: visible; width: 126px; height: 20px;"
-                                                        class=""></iframe>
-                                                </span>
-                                            </div>
-                                        </a>
-                                        <ul class="popup-guide">
-                                            Khóa học sẽ được lưu vào phần
-                                            <a href="https://facebook.com/saved" target="_blank">Saved</a>
-
-                                            (Đã lưu) trong tài khoản Facebook của bạn. Bạn có thể tìm xem lại bất kì khi nào.
-                                        </ul>
-                                    </li>
-                                    <li class="fb">
-                                        <div class="fb-like fb_iframe_widget" data-href="https://kyna.vn/tieng-hoa-cho-nguoi-moi-bat-dau-1" data-layout="button_count"
-                                            data-action="like" data-size="large" data-show-faces="false" data-share="true" fb-xfbml-state="rendered"
-                                            fb-iframe-plugin-query="action=like&amp;app_id=191634267692814&amp;container_width=350&amp;href=https%3A%2F%2Fkyna.vn%2Ftieng-hoa-cho-nguoi-moi-bat-dau-1&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;size=large">
-                                            <span style="vertical-align: bottom; width: 159px; height: 28px;">
-                                                <iframe name="f12288df1ed0718" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true"
-                                                    scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin"
-                                                    src="https://www.facebook.com/v2.10/plugins/like.php?action=like&amp;app_id=191634267692814&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FLviKjJ9cymB.js%3Fversion%3D43%23cb%3Df5ec295fcd8994%26domain%3Dkyna.vn%26origin%3Dhttps%253A%252F%252Fkyna.vn%252Ff3bacdc85687e24%26relation%3Dparent.parent&amp;container_width=350&amp;href=https%3A%2F%2Fkyna.vn%2Ftieng-hoa-cho-nguoi-moi-bat-dau-1&amp;layout=button_count&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=false&amp;size=large"
-                                                    style="border: none; visibility: visible; width: 159px; height: 28px;" class=""></iframe>
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="gg">
-                                        <script src="https://apis.google.com/js/platform.js" async="" defer="" gapi_processed="true">
-                                            {
-                                                lang: 'vi'
-                                            }
-                                        </script>
-                                        <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 38px; height: 24px;">
-                                            <iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 38px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;"
-                                                tabindex="0" vspace="0" width="100%" id="I0_1544603180847" name="I0_1544603180847"
-                                                src="https://apis.google.com/u/0/se/0/_/+1/fastbutton?usegapi=1&amp;size=standard&amp;hl=vi&amp;origin=https%3A%2F%2Fkyna.vn&amp;url=https%3A%2F%2Fkyna.vn%2Ftieng-hoa-cho-nguoi-moi-bat-dau-1&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.vi.OBWdkqjOtUM.O%2Fam%3DQQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMm6tgyNg1B5NKtnaxyPjA_NilDvQ%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1544603180847&amp;_gfid=I0_1544603180847&amp;parent=https%3A%2F%2Fkyna.vn&amp;pfname=&amp;rpctoken=20229695"
-                                                data-gapiattached="true" title="G+"></iframe>
-                                        </div>
+                                        </a> -->
                                     </li>
                                 </ul>
                             </li>
@@ -265,13 +187,13 @@
                                     <div id="k-course-details-about" class="k-course-details-about" path="scrolling">
                                         <ul class="list hidden-md-down">
                                             <li>
-                                                <a href="javascript:void(0);" link="#k-course-details-about">Giới thiệu</a>
+                                                <a href="#k-course-details-about" link="#k-course-details-about">Giới thiệu</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0);" link="#k-course-details-curriculum">Nội dung học</a>
+                                                <a href="#k-course-details-curriculum">Nội dung học</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0);" link="#k-course-details-author">Giảng viên</a>
+                                                <a href="#k-course-details-author" link="#k-course-details-author">Giảng viên</a>
                                             </li>
                                         </ul>
                                         <div class="course-overview">
@@ -365,11 +287,14 @@
                                         <h3 class="hidden-md-down">Nội dung khóa học</h3>
                                         <ul class="wrap-detail">
                                             <li class="part" th:each="part : ${parts}">
-                                                <h4 class="icon-arrow-down" th:text="${part.name}"></h4><h4 class="icon-arrow-down" th:text="${part.description}"></h4>
+                                                <h4 class="icon-arrow-down" th:text="${part.name}"></h4>
+                                                <h4 class="icon-arrow-down" th:text="${part.description}"></h4>
                                                 <ul>
                                                     <li th:each="lesson : ${lessons.get(part.id)}">
                                                         <span>
-                                                            <img src="https://media-kyna.cdn.vccloud.vn/img/icon-arrow-circle-right-line.png" alt="" th:text="${lesson.name}"><p th:text="${lesson.description}"></p></span>
+                                                            <img src="https://media-kyna.cdn.vccloud.vn/img/icon-arrow-circle-right-line.png" alt="" th:text="${lesson.name}">
+                                                            <p th:text="${lesson.description}"></p>
+                                                        </span>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -390,7 +315,7 @@
                         <div class="part-parent">
                             <div class="part-child-1">
                                 <h3 class="hidden-lg-up">NỘI DUNG KHÓA HỌC</h3>
-                                <div class="k-course-details-list-combo clearfix">
+                                <!-- <div class="k-course-details-list-combo clearfix">
                                     <h4>Combo có khóa học này</h4>
                                     <div class="item">
                                         <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/272/img/image_url.cover-160x90.jpg" alt="Tiếng Hoa cho người mới bắt đầu"
@@ -426,123 +351,59 @@
                                             <span class="red">-68%</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="part-child-2">
                                 <section>
                                     <div id="k-course-details-author" class="k-course-details-author" path="scrolling">
                                         <div class="">
-                                            <h4 class="title-content hidden-md-down">Thông tin giảng viên
-                                            </h4>
+                                            <h4 class="title-content hidden-md-down">Thông tin giảng viên</h4>
                                             <ul>
                                                 <li class="k-course-details-author-img">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/user/106639/img/avatar.crop-120x120.jpg" alt="Nguyễn Minh Thúy"
-                                                        title="Nguyễn Minh Thúy">
+                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/user/325931/img/avatar.crop-120x120.png" alt="Trần Duy Thanh"
+                                                        title="Trần Duy Thanh">
                                                     <div class="info-teacher hidden-lg-up">
-                                                        <a href="/giang-vien/nguyen-minh-thuy" class="name">
-                                                            <b>Nguyễn Minh Thúy</b>
+                                                        <a href="/giang-vien/tran-duy-thanh" class="name">
+                                                            <b>Trần Duy Thanh</b>
                                                         </a>
-                                                        <div class="info">Giảng viên trường ĐH KHXH &amp; NV TP.HCM
-                                                        </div>
+                                                        <div class="info">Thạc sỹ Khoa học máy tính</div>
                                                     </div>
                                                 </li>
-                                                <li class="k-course-details-author-teacher">
+                                                <li class="k-course-details-author-teacher" th:each="obj : ${lecturer}">
                                                     <div class="k-course-details-author-teacher-title">
-                                                        <a href="/giang-vien/nguyen-minh-thuy" class="name hidden-md-down">Nguyễn Minh Thúy</a>
-                                                        <span class="info hidden-md-down">Giảng viên trường ĐH KHXH &amp; NV TP.HCM</span>
+                                                        <a href="/giang-vien/tran-duy-thanh" class="name hidden-md-down" th:text="${obj.name}"></a>
+                                                        <span class="info hidden-md-down">Thạc sỹ Khoa học máy tính</span>
                                                     </div>
-                                                    <a href="/giang-vien/nguyen-minh-thuy" class="btn btn-info-teacher main hidden-md-down">XEM THÊM THÔNG TIN</a>
+                                                    <!-- <a href="/giang-vien/tran-duy-thanh" class="btn btn-info-teacher main hidden-md-down">XEM THÊM THÔNG TIN</a> -->
                                                     <div class="content-teacher hidden-md-down">
-                                                        <p>
-                                                            <span style="color: #333333;">- Công tác tại Khoa Ngữ văn Trung Quốc trường Đại học KHXH &amp;
-                                                                NV TP.HCM từ 1995 đến nay.</span>
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <strong>
+                                                                <span style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-fareast-language: VI;">Chức vụ:</span>
+                                                            </strong>
                                                         </p>
-                                                        <p>
-                                                            <span style="color: #333333;">- Chuyên ngành: Tiếng Hán hiện đại</span>
-                                                        </p>
-                                                        <p>
-                                                            <span style="color: #333333;">Được đào tạo:</span>
-                                                            <br>
-                                                            <span style="color: #333333;"> - Hệ cử nhân khoa Trung văn trường Đại học Sư Phạm TP.HCM (khoá
-                                                                1990 - 1995)
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <span lang="EN-US" style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-ansi-language: EN-US;"
+                                                                th:text="${obj.position}">
                                                             </span>
-                                                            <br>
-                                                            <span style="color: #333333;"> - Thạc sĩ ngành Ngôn ngữ học so sánh trường ĐHKHXH &amp; NV
-                                                                TP.HCM (1999 - 2003)</span>
+                                                        </p>
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <strong>
+                                                                <span style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-fareast-language: VI;">Học vấn:</span>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <span style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-fareast-language: VI;" th:text="${obj.education}">
+                                                            </span>
+                                                        </p>
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <strong>
+                                                                <span style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-fareast-language: VI;">Kinh nghiệm:</span>
+                                                            </strong>
+                                                        </p>
+                                                        <p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: 150%;">
+                                                            <span style="font-size: 13.0pt; line-height: 150%; mso-ascii-font-family: 'Times New Roman'; mso-ascii-theme-font: major-latin; mso-fareast-font-family: 'Times New Roman'; mso-hansi-font-family: 'Times New Roman'; mso-hansi-theme-font: major-latin; mso-bidi-font-family: 'Times New Roman'; mso-bidi-theme-font: major-latin; mso-fareast-language: VI;" th:text="${obj.experience}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                                         </p>
                                                     </div>
-                                                    <input id="showmore-desciption-full" type="checkbox" style="display: none">
-                                                    <div class="desciption-full hidden-lg-up">
-                                                        <div class="wrapper">
-                                                            <p>
-                                                                Kyna.vn thực hiện
-                                                                <strong>khóa học&nbsp;tiếng Hoa cho người mới bắt đầu 1&nbsp;</strong>-
-                                                                nhằm đáp ứng nhu cầu học và tìm hiểu về tiếng Hoa của học
-                                                                viên.
-                                                            </p>
-                                                            <p>
-                                                                Có thể nói, để nói được
-                                                                <strong>tiếng Hoa</strong> là cả một chặng đường khổ học vì mỗi từ
-                                                                có thể được phát âm theo 4 cách và người mới học bao giờ
-                                                                cũng gặp vấn đề trong cách phân biệt các ngữ điệu.&nbsp;
-                                                            </p>
-                                                            <p>
-                                                                Bạn có thể vượt qua những khó khăn đó, nhanh chóng và dễ dàng hơn trong việc
-                                                                <strong>chinh phục tiếng Hoa
-                                                                </strong> cùng khóa học này. Khóa học dành cho học viên ở
-                                                                mức sơ cấp - mới bắt đầu làm quen với tiếng Hoa và muốn
-                                                                <strong>
-                                                                    <a title="học tiếng Hoa" href="https://kyna.vn/p/nhom-khoa-hoc/tieng-hoa-cho-nguoi-moi-bat-dau-v3" target="_blank" rel="noopener">học tiếng Hoa</a>
-                                                                </strong> từ những bước cơ bản đầu tiên. Đây sẽ là nền tảng để bạn
-                                                                phát triển hơn khả năng tiếng Hoa của mình ở một mức độ cao
-                                                                hơn trong tương lai.
-                                                            </p>
-                                                            <p>
-                                                                <span style="color: #000000;">
-                                                                    <strong>Khóa học tiếng Hoa&nbsp;</strong>dưới&nbsp;sự dẫn dắt
-                                                                    của giảng viên
-                                                                    <span style="color: #000000;">
-                                                                        <strong>Nguyễn Minh Thúy</strong>
-                                                                    </span>, trải qua 10 phần học, bạn sẽ nắm vững
-                                                                    <strong>cách học tiếng Hoa hiệu quả</strong> với các nội dung
-                                                                    chính sau đây:</span>
-                                                            </p>
-                                                            <ul>
-                                                                <li>
-                                                                    <span style="color: #000000;">Toàn bộ về khẩu ngữ, cách phát âm của tiếng Hoa</span>
-                                                                </li>
-                                                                <li>
-                                                                    <span style="color: #000000;">Viết chính xác các từ trong tiếng Hoa</span>
-                                                                </li>
-                                                                <li>
-                                                                    <span style="color: #000000;">Tự giới thiệu bản thân bằng tiếng Hoa</span>
-                                                                </li>
-                                                                <li>
-                                                                    <span style="color: #000000;">Giao tiếp với mọi người bằng những câu quen thuộc trong
-                                                                        đời sống hằng ngày</span>
-                                                                </li>
-                                                            </ul>
-                                                            <p>
-                                                                <span style="color: #000000;">Nếu
-                                                                    <strong>học tiếng Hoa</strong> và chinh phục tiếng Hoa là mục
-                                                                    tiêu của bạn, hãy khám phá khóa học
-                                                                    <span style="color: #000000;">
-                                                                        <strong>tiếng Hoa cho người mới bắt đầu</strong>
-                                                                    </span> ngay hôm nay.
-                                                                </span>
-                                                            </p>
-                                                            <p>
-                                                                <span style="color: #000000;">Đặc biệt, với những bạn muốn nâng cao hơn nữa kỹ năng sử
-                                                                    dụng tiếng Hoa của mình, tham gia ngay khóa học
-                                                                    <strong>
-                                                                        <a href="https://kyna.vn/tieng-hoa-cho-nguoi-moi-bat-dau-2" target="_blank" rel="noopener">Tiếng Hoa cho người mới bắt đầu 2</a>
-                                                                    </strong>
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <label for="showmore-desciption-full" class="btn btn-info-teacher btn-info-teacher-2 hidden-lg-up">THU GỌN
-                                                    </label>
                                                 </li>
                                             </ul>
                                         </div>
@@ -556,173 +417,21 @@
                             <div class="k-course-details-related">
                                 <h3>Khóa học liên quan</h3>
                                 <ul class="row k-course-details-related-list">
-                                    <li class="col-sm-12 col-xs-6 list" data-id="851" data-brand="AlphaBooks">
+                                    <li class="col-sm-12 col-xs-6 list" data-id="851" data-brand="AlphaBooks" th:each="course : ${courses}">
                                         <div class="item-list clearfix">
                                             <div class="col-sm-4 col-xs-12 k-related-courses-img">
                                                 <a href="/tieng-trung-du-lich">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/851/img/image_url-1506565675.cover-263x147.png"
+                                                    <img class="img-fluid" th:src="@{${course.img}}"
                                                         alt="Tiếng Trung du lịch" title="Tiếng Trung du lịch" style="height: auto;">
                                                 </a>
                                             </div>
                                             <div class="col-sm-8 col-xs-12 k-related-courses-text">
                                                 <h6 style="height: auto;">
-                                                    <a href="/tieng-trung-du-lich" title="Tiếng Trung du lịch">Tiếng Trung du lịch</a>
+                                                    <a href="/tieng-trung-du-lich" th:text="${course.description}"></a>
                                                 </h6>
                                                 <ul>
                                                     <li>
-                                                        <span>149.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="814" data-brand="Nguyễn Thị Hoài Phương">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/tu-tin-nam-vung-ngu-phap-tieng-trung-sau-30-ngay">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/814/img/image_url-1500885936.cover-263x147.jpg"
-                                                        alt="Tự tin nắm vững ngữ pháp tiếng Trung sau 30 ngày" title="Tự tin nắm vững ngữ pháp tiếng Trung sau 30 ngày"
-                                                        style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/tu-tin-nam-vung-ngu-phap-tieng-trung-sau-30-ngay" title="Tự tin nắm vững ngữ pháp tiếng Trung sau 30 ngày">Tự tin nắm vững ngữ pháp tiếng Trung sau 30 ngày</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>199.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="769" data-brand="Nguyễn Thanh Cầm">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/han-ngu-nang-cao-2">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/769/img/image_url-1501390762.cover-263x147.jpg"
-                                                        alt="Hán ngữ nâng cao 2" title="Hán ngữ nâng cao 2" style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/han-ngu-nang-cao-2" title="Hán ngữ nâng cao 2">Hán ngữ nâng cao 2</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>299.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="768" data-brand="Nguyễn Thanh Cầm">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/han-ngu-nang-cao-1">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/768/img/image_url-1501390770.cover-263x147.jpg"
-                                                        alt="Hán ngữ nâng cao 1" title="Hán ngữ nâng cao 1" style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/han-ngu-nang-cao-1" title="Hán ngữ nâng cao 1">Hán ngữ nâng cao 1</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>299.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="661" data-brand="Nguyễn Thanh Cầm">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/han-ngu-co-ban-2-giao-trinh-boya">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/661/img/image_url-1501319030.cover-263x147.jpg"
-                                                        alt="Hán ngữ cơ bản 2 (Giáo trình Boya)" title="Hán ngữ cơ bản 2 (Giáo trình Boya)"
-                                                        style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/han-ngu-co-ban-2-giao-trinh-boya" title="Hán ngữ cơ bản 2 (Giáo trình Boya)">Hán ngữ cơ bản 2 (Giáo trình Boya)</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>299.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="660" data-brand="Nguyễn Thanh Cầm">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/han-ngu-co-ban-1-giao-trinh-boya">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/660/img/image_url-1501319046.cover-263x147.jpg"
-                                                        alt="Hán ngữ cơ bản 1 (Giáo trình Boya)" title="Hán ngữ cơ bản 1 (Giáo trình Boya)"
-                                                        style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/han-ngu-co-ban-1-giao-trinh-boya" title="Hán ngữ cơ bản 1 (Giáo trình Boya)">Hán ngữ cơ bản 1 (Giáo trình Boya)</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>199.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="159" data-brand="Nguyễn Minh Thúy">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/tieng-hoa-cho-nguoi-moi-bat-dau-4">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/159/img/image_url-1501391480.cover-263x147.jpg"
-                                                        alt="Tiếng Hoa cho người mới bắt đầu 4" title="Tiếng Hoa cho người mới bắt đầu 4"
-                                                        style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/tieng-hoa-cho-nguoi-moi-bat-dau-4" title="Tiếng Hoa cho người mới bắt đầu 4">Tiếng Hoa cho người mới bắt đầu 4</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>199.000&nbsp;₫</span>
-                                                    </li>
-                                                    <li></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="col-sm-12 col-xs-6 list" data-id="149" data-brand="Nguyễn Minh Thúy">
-                                        <div class="item-list clearfix">
-                                            <div class="col-sm-4 col-xs-12 k-related-courses-img">
-                                                <a href="/tieng-hoa-cho-nguoi-moi-bat-dau-3">
-                                                    <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/149/img/image_url-1501391416.cover-263x147.jpg"
-                                                        alt="Tiếng Hoa cho người mới bắt đầu 3" title="Tiếng Hoa cho người mới bắt đầu 3"
-                                                        style="height: auto;">
-                                                </a>
-                                            </div>
-                                            <div class="col-sm-8 col-xs-12 k-related-courses-text">
-                                                <h6 style="height: auto;">
-                                                    <a href="/tieng-hoa-cho-nguoi-moi-bat-dau-3" title="Tiếng Hoa cho người mới bắt đầu 3">Tiếng Hoa cho người mới bắt đầu 3</a>
-                                                </h6>
-                                                <ul>
-                                                    <li>
-                                                        <span>199.000&nbsp;₫</span>
+                                                        <span th:text="${course.price}">&nbsp;₫</span>
                                                     </li>
                                                     <li></li>
                                                 </ul>

@@ -240,7 +240,7 @@
                             <li class="col-xl-4 col-md-6 col-xs-12 k-box-card" data-key="0" th:each="course : ${courses}">
                                 <div class="k-box-card-wrap clearfix" data-id="1347" data-course-type="1">
                                     <div class="img">
-                                        <img class="img-fluid" src="https://media-kyna.cdn.vccloud.vn/uploads/courses/1347/img/image_url-1545973642.cover-263x147.jpg"
+                                        <img class="img-fluid" th:src="@{${course.img}}"
                                             alt="Làm phim nhanh chóng với Movavi Video Editor và Motion Graphic trên Camtasia"
                                             title="Làm phim nhanh chóng với Movavi Video Editor và Motion Graphic trên Camtasia">
                                         <div class="label-wrap">
@@ -315,9 +315,9 @@
                                             </div>
                                         </div>
                                     </div> -->
-                                    <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" class="link-wrap"></a>
+                                    <a th:href="@{'/' + ${course.url}}" class="link-wrap"></a>
                                 </div>
-                                <a href="/khoa-hoc-lam-phim-nhanh-chong-voi-movavi-video-editor-va-motion-graphics-tren-camtasia" class="card-popup"></a>
+                                <a th:href="@{'/' + ${course.url}}" class="card-popup"></a>
                             </li>
                             
                         </ul>

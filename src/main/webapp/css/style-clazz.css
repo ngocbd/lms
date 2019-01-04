@@ -1,0 +1,772 @@
+main {
+    z-index: 11;
+    background: white;
+    position: relative;
+    transition: transform 300ms cubic-bezier(0.2, 0.7, 0.5, 1) !important;
+}
+
+.main-lesson .wrap-top {
+    padding: 0;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+.main-lesson .header-lesson {
+    float: right;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-lesson .header-lesson .container {
+    position: relative;
+}
+
+.main-lesson .header-lesson .back {
+    z-index: 2;
+    position: relative;
+}
+
+.main-lesson .header-lesson .courses {
+    padding: 0;
+    line-height: 38px;
+    font-weight: bold;
+    float: left;
+}
+
+.main-lesson .header-lesson .logo {
+    z-index: 1;
+    position: relative;
+    padding-top: 12px;
+    padding-bottom: 0;
+}
+
+.navbar-brand {
+    float: left;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.main-lesson .header-lesson .courses.title-course {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 14px;
+}
+
+.main-lesson .header-lesson .courses {
+    padding: 0;
+    line-height: 38px;
+    font-weight: bold;
+    float: left;
+}
+
+.main-lesson .header-lesson .account {
+    float: right;
+    margin-right: 10px;
+    margin-top: 7px;
+    text-align: right;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.main-lesson .header-lesson .courses {
+    line-height: 38px;
+    font-weight: bold;
+}
+
+.main-lesson .header-lesson .courses .back-mycourse {
+    background: #50ad4e;
+    color: white;
+    line-height: 0;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-brand>img {
+    display: block;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.main-lesson .header-lesson .courses.title-course h4 {
+    margin: 0;
+    display: inline-block;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+.main-lesson .header-lesson .account .dropdown-toggle {
+    padding: 0;
+    display: inline-block;
+}
+
+a,
+[role="button"] {
+    touch-action: manipulation;
+}
+
+.main-lesson .header-lesson .account .sub-wrap {
+    display: inline-block;
+    padding-left: 37px;
+}
+
+.main-lesson .header-lesson .account img {
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+    float: left;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.main-lesson .header-lesson .account .sub-wrap .text {
+    float: right;
+}
+
+.main-lesson .header-lesson .account .sub-wrap .user {
+    display: inline-block;
+    font-size: 14px;
+    color: #4a4a4a;
+    line-height: 20px;
+}
+
+.main-lesson .header-lesson .account .sub-wrap .title {
+    display: block;
+    color: #212121;
+    font-size: 12px !important;
+    padding-right: 15px;
+    margin-top: 0;
+}
+
+.main-lesson .group-top {
+    position: relative;
+    background-color: #272727;
+}
+
+.pd0 {
+    padding: 0 !important;
+}
+
+.main-lesson .group-top .pull-right.background-dark {
+    background-color: #272727;
+}
+
+.main-lesson .group-top .pull-right {
+    padding: 0;
+    height: calc(100vh - 164px);
+    transition: all 0.5s ease;
+}
+
+.pull-right {
+    float: right;
+}
+
+.main-lesson .group-top .header-lesson {
+    margin-top: 65px;
+}
+
+.main-lesson .header-lesson {
+    float: right;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-lesson .group-top .wrap-menu-mobile {
+    padding: 15px 10px 0 0;
+}
+
+#part-video.part-video {
+    margin-top: 15px;
+    padding: 0;
+}
+
+.review-course {
+    position: absolute;
+    z-index: 12;
+    top: 52px;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: white;
+    transition: height 300ms ease-in-out;
+}
+
+.main-lesson .wrap-top .group-top .wrap-video-lesson {
+    height: calc(100% + -52px);
+}
+
+.main-lesson .wrap-top .group-top .wrap-video-lesson {
+    padding: 0;
+    position: relative;
+    background-color: #333333;
+}
+
+#part-video.part-video #scroller {
+    width: calc(100% - 420px);
+    overflow: hidden;
+}
+
+#part-video.part-video .tool-bar {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    color: white;
+}
+
+#part-video.part-video .pre {
+    display: none;
+    height: 32px;
+    line-height: 32px;
+    text-align: left;
+    padding: 0 10px;
+    width: 50px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    cursor: -webkit-grab;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.3), white);
+}
+
+#part-video.part-video .nex {
+    text-align: right;
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, white, rgba(255, 255, 255, 0.3));
+}
+
+#part-video.part-video .nex {
+    display: none;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 10px;
+    width: 50px;
+    top: 0;
+    position: absolute;
+    cursor: -webkit-grab;
+}
+
+#part-video.part-video #scroller #bar-scroll {
+    width: auto !important;
+}
+
+#part-video.part-video #scroller ul {
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
+#part-video.part-video #scroller ul li {
+    float: left;
+}
+
+#part-video.part-video #scroller ul li a.seeing {
+    background-color: #4fad4d;
+}
+
+#part-video.part-video #scroller ul li a {
+    position: relative;
+    text-align: center;
+    min-width: 40px;
+    padding: 4px;
+    margin: 0 4px 7px 0;
+    float: left;
+    cursor: pointer;
+    color: #272727;
+}
+
+#part-video.part-video .tool-bar>div {
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+}
+
+#part-video.part-video .tool-bar>div .icon-star-list {
+    background-color: white;
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#part-video.part-video .tool-bar>div.btn-tutorial {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+#part-video.part-video .tool-bar>div {
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+}
+
+.review-course .k-course-reviews-wrap {
+    height: 100%;
+    margin-top: 30px;
+    overflow: auto;
+}
+
+.review-course .k-course-reviews-wrap.hide {
+    display: none;
+}
+
+.review-course .k-course-reviews-wrap {
+    height: 100%;
+    margin-top: 30px;
+    overflow: auto;
+}
+
+.review-course .k-course-reviews-wrap .k-course-reviews-rate {
+    border: none;
+}
+
+.k-course-reviews-wrap .k-course-reviews-rate {
+    color: #272727;
+    padding: 10px 15px 15px 15px;
+    background: #fff;
+    margin-bottom: 5px;
+    text-align: center;
+    border-radius: 0 0 3px 3px;
+}
+
+center {
+    display: block;
+    text-align: -webkit-center;
+}
+
+.k-course-reviews-wrap .k-course-reviews-rate .btn-submit-rating {
+    background: #fb6a00;
+    border-bottom: 2px solid #e25f00;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    display: inline-block;
+    border-radius: 3px;
+    transition: background-color 100ms ease-in-out, color 100ms ease-in-out, border-color 100ms ease-in-out;
+    color: white !important;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px 40px;
+}
+
+.review-course .k-course-reviews-wrap .k-course-reviews-rate .btn-ignore-rating {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.7142857143;
+    border-radius: 3px;
+}
+
+.btn {
+    font-weight: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    line-height: 1.7142857143;
+}
+
+.review-course .k-course-reviews-wrap .k-course-reviews-rate p.text-top {
+    text-transform: uppercase;
+    color: #50ad4e;
+    font-size: 18px;
+}
+
+.k-course-reviews-wrap .k-course-reviews-rate p:first-child {
+    margin-bottom: 2px;
+}
+
+.k-course-reviews-wrap .k-course-reviews-rate .text-top {
+    font-weight: 700 !important;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.7142857143;
+    border-radius: 3px;
+}
+
+.main-lesson .wrap-top .group-top .wrap-video-lesson {
+    padding: 0;
+    position: relative;
+    background-color: #333333;
+}
+
+.main-lesson .wrap-top .group-top .wrap-video-lesson #flowplayerhtml5 {
+    height: calc(100% - 25px);
+}
+
+.flowplayer {
+    width: 100%;
+    counter-increment: flowplayer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+}
+
+.flowplayer * {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    font-size: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.flowplayer .fp-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flowplayer * {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    font-size: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.flowplayer .fp-engine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.flowplayer * {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    font-size: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.flowplayer-end-screen {
+    color: #fff;
+    z-index: 50;
+    position: inherit;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    font-size: 14px;
+    background-color: #404040;
+    text-align: center;
+    display: none;
+    transition: opacity .5s;
+    opacity: .9;
+}
+
+.is-paused.flowplayer .fp-ui {
+    background: url(img/play_white.png) center no-repeat;
+    background-size: 11%;
+}
+
+.flowplayer .fp-ui {
+    z-index: 11;
+}
+
+.flowplayer .fp-engine,
+.flowplayer .fp-ui,
+.flowplayer .fp-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.flowplayer * {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    font-size: 100%;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.flowplayer .fp-help {
+    position: absolute;
+    top: 0;
+    left: -9999em;
+    z-index: 100;
+    background-color: rgba(51, 51, 51, 0.9);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .2s;
+    text-align: center;
+}
+
+.flowplayer .fp-subtitle {
+    position: absolute;
+    bottom: 40px;
+    left: -99999em;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+}
+
+.end-screen-close-button {
+    float: right;
+    width: 40px;
+    background-color: transparent;
+}
+
+.countdown-cancel {
+    margin-top: 15px;
+}
+
+.up-next-lesson {
+    font-size: x-large;
+}
+
+.flowplayer * {
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    text-decoration: inherit;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.countdown {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    margin: -120px 0 0 -50px;
+}
+
+.countdown-number {
+    color: #fff;
+    display: inline-block;
+    line-height: 40px;
+    font-size: 50px;
+    text-align: center;
+    margin: 30px -7px 0 0;
+    z-index: 99999;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+svg circle {
+    stroke-dasharray: 226px;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-width: 5px;
+    stroke: white;
+    fill: none;
+    animation: draw 5s linear;
+    animation-play-state: paused;
+    background-color: #000;
+}
+
+.is-paused.flowplayer .fp-ui {
+    background: url(img/play_white.png) center no-repeat;
+    background-size: 11%;
+}
+
+.flowplayer .fp-ui {
+    z-index: 11;
+}
+
+.flowplayer .fp-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.flowplayer .fp-waiting {
+    display: none;
+    margin: 19% auto;
+    text-align: center;
+}
+
+.flowplayer .fp-speed {
+    font-size: 30px;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #eee;
+    margin: 0 auto;
+    text-align: center;
+    width: 120px;
+    padding: .1em 0 0;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    transition: opacity .5s;
+}
+
+.flowplayer.is-mouseout .fp-controls {
+    animation: functional-controls-hide 1s 1;
+}
+
+.flowplayer.is-mouseout .fp-time {
+    -moz-transition: none;
+    transition: none;
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+
+.flowplayer .fp-time {
+    text-shadow: 0 0 1px #000;
+    font-size: 11px;
+    font-weight: normal;
+    font-family: 'myriad pro', Helvetica, Arial, sans-serif !important;
+    color: #fff;
+    width: 100%;
+}
+
+.flowplayer .fp-message {
+    display: none;
+    text-align: center;
+    padding-top: 5%;
+    cursor: default;
+}
+
+.flowplayer .fp-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.main-lesson .group-top .wrap-menu-mobile {
+    padding: 15px 10px 0 0;
+}
+
+.main-lesson .mobile-tab {
+    padding: 0;
+}
+
+.main-lesson .box-of-menutabs {
+    position: relative;
+    background-color: white;
+    height: calc(100vh - 308px);
+    padding: 12px;
+    overflow: auto;
+}
+
+.main-lesson .box-of-menutabs {
+    position: relative;
+    background-color: white;
+    height: calc(100vh - 308px);
+    padding: 12px;
+    overflow: auto;
+}
+
+input {
+    margin: 0;
+    line-height: inherit;
+    border-radius: 0;
+}
+
+.main-lesson .add-note {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 80px;
+    border-radius: 3px;
+}
+
+.main-lesson textarea {
+    padding: 8px 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.main-lesson .feedback-lesson {
+    margin-top: 45px;
+    width: 100%;
+    height: 0;
+    float: none;
+    position: relative;
+    top: 20px;
+}
+
+.main-lesson .mobile-tab ul {
+    border: none;
+}
+
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.main-lesson .mobile-tab ul li {
+    float: left;
+}
+
+.main-lesson .mobile-tab ul li a {
+    color: white;
+    padding: 6px 10px;
+    display: block;
+}
